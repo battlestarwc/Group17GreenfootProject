@@ -5,7 +5,21 @@ import java.util.PriorityQueue;
 
 public class Algo {
 
-    public static boolean DijkstraRuntime(Graph input) {
+    public static boolean DijkstraRuntime(Graph input, String objective) {
+        Vertex obj = null;
+        for (Vertex v : input.getGraphVertices()) {
+            if (v.getName().equals(objective)) {
+                obj = v;
+                break;
+            }
+        }
+        if (obj == null) {
+            return false;
+        }
+        return DijkstraRuntime(input, obj);
+    }
+
+    public static boolean DijkstraRuntime(Graph input, Vertex objective) {
         loadPriorityQueue(input);
         while(!input.toBeSolved.isEmpty()) {
             Vertex target = input.toBeSolved.remove();
@@ -17,14 +31,21 @@ public class Algo {
                 }
                 UpdateMap(input, edg);
             }
+            loadPriorityQueue(input);
+        }
+        if (input.minimalCostToVertex.containsKey(objective)) {
+            return true;
         }
         return false;
     }
 
     private static void loadPriorityQueue(Graph input) {
+        input.toBeSolved = new PriorityQueue<>();
         Iterator<Vertex> itr = input.getGraphVertices().iterator();
         while(itr.hasNext()) {
-            input.toBeSolved.add(itr.next());
+            if(!input.minimalCostToVertex.containsKey(itr)) {
+                input.toBeSolved.add(itr.next());
+            }
         }
     }
 

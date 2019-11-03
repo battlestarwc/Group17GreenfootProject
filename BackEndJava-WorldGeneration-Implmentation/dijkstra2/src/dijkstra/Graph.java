@@ -121,4 +121,19 @@ public class Graph {
     public Vector<Vertex> getGraphVertices() {
         return graphVertices;
     }
+
+    public double getCostForNamedPoint(String vertex) {
+        Vertex target = null;
+        for (Vertex v : this.getGraphVertices()) {
+            if (v.getName().equals(vertex)) {
+                target = v;
+                break;
+            }
+        }
+        if (target == null) {
+            return -1;
+        }
+        return this.minimalCostToVertex.get(target);
+    }
+
 }
