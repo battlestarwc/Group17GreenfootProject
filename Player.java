@@ -16,6 +16,7 @@ public class Player extends Actor
     //private int visionRange;
     public Player() {
             coins = 0;
+            
             //visionRange = 100;
     }
     
@@ -52,22 +53,22 @@ public class Player extends Actor
         int currentX = getX();
         int currentY = getY();
         if (wallCollision() == 1) {
-            Actor test = getOneObjectAtOffset(1, 1, TestObstacle.class);
+            Actor test = getOneObjectAtOffset(xDirection(this.getRotation()), yDirection(this.getRotation()), TestObstacle.class);
             if (test == null) {
-                    
-            if (Greenfoot.isKeyDown("w")) {
+            
+            if (Greenfoot.isKeyDown("Up")) {
             setRotation(270);
             move(10);  
         }
-            if (Greenfoot.isKeyDown("a")) {
+            if (Greenfoot.isKeyDown("Left")) {
             setRotation(180);
             move (10);   
         }
-            if (Greenfoot.isKeyDown("s")) {
+            if (Greenfoot.isKeyDown("Down")) {
             setRotation(90);
             move(10);
         }
-            if (Greenfoot.isKeyDown("d")) {
+            if (Greenfoot.isKeyDown("Right")) {
             setRotation(0);
             move(10);
         }
@@ -75,6 +76,26 @@ public class Player extends Actor
     }
     }
     
+    public int xDirection(int direction) {
+        if (direction == 0) {
+            return 1;
+        }
+        if (direction == 180) {
+            return -1;
+        }
+        return 0;
     
+    
+}
+
+    public int yDirection(int direction) {
+        if (direction == 90) {
+            return 1;
+        }
+        if (direction == 270) {
+            return -1;
+        }
+        return 0;
+    }
     
 }
