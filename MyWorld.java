@@ -10,19 +10,17 @@ public class MyWorld extends World
 {
 
 
-	private Class<T> playerType = Cannon.class;
+	
 	private int screenSizeX = 600;
 	private int screenSizeY = 600;
 	private int playerTargetX = screenSizeX / 2;
 	private int playerTargetY = screenSizeY / 2;
-    
+        Counter counter = new Counter();
 	private void scroll() {
-		Actor player;
-		for (Actor a : getWorld().getObjects(Actor)) {
-			if (a.class == this.playerType) {
-				player = a;
-				break;
-			}
+		Actor player = null;
+		
+		if (player == null) {
+		    throw new RuntimeException("Code has reached an unreachable state, please go to counciling");
 		}
 		int x = player.getX();
 		int y = player.getY();
@@ -37,13 +35,22 @@ public class MyWorld extends World
 		deltaY *= -1;
 
 		//move
-		for (Actor a : getWorld().getObjects(Actor)) {
+		for (Actor a : super.getObjects(Actor.class)) {
 			int newX = a.getX() + deltaX;
 			int newY = a.getY() + deltaY;
 			a.setLocation(newX, newY);
 		}
 	}
 
+	public void act() {
+		scroll();
+	}
+	/**
+	 * create a counter in the world.
+	 */
+        public Counter counter() {
+            return counter();
+        }
 
 	/*
      * Constructor for objects of class MyWorld.
@@ -52,6 +59,13 @@ public class MyWorld extends World
     public MyWorld()
     {    
         // Create a new world with 600x400 cells with a cell size of 1x1 pixels.
-        super(screenSizeX, screenSizeY, 1, false); 
+        super(600, 600, 1, false);
+	//Test scrolling
+	
+	addObject(new Cannon(), 100,100);
+	GreenfootImage background = new GreenfootImage ("space1.png");
+	addObject(new Counter(), 20, 30);
     }
+    //
+    
 }

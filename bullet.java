@@ -14,6 +14,19 @@ public class bullet extends Cannon
      */
     public void act() 
     {
-        // Add your action code here.
-    }    
+        move(5);
+        touch();// Add your action code here.
+    } 
+    //
+    public void touch() {
+        Actor monster = getOneIntersectingObject(monster.class);
+        if(monstor != null)
+        {
+           getWorld().removeObject(monster);
+           Counter counter = new Counter();
+           counter.getCounter();
+           
+           
+        }
+    }
 }
