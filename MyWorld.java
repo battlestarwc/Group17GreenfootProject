@@ -64,6 +64,8 @@ public class MyWorld extends World
         super(600, 600, 1, false);
 	//Test scrolling
 	addObject(new TestPlayer(), 300,300); 
-	addObject(new Cannon(), 100,100);
+	
+	addObject(new Player(), 300,300);
+	addObject(new TestObstacle(), 100, 100);
     }
 }

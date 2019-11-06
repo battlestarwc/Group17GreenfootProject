@@ -13,17 +13,36 @@ public class Player extends Actor
      * the 'Act' or 'Run' button gets pressed in the environment.
      */
     private int coins;
+    private int speed;
     //private int visionRange;
     public Player() {
             coins = 0;
-            
+            speed = 5;
             //visionRange = 100;
     }
     
     public void act() 
     {
         wallCollision();
-        keysPressed();
+        if(Greenfoot.isKeyDown("Up")) {
+                setRotation(270);
+                keysPressed();
+            }
+             else if(Greenfoot.isKeyDown("Right")) {
+                    setRotation(0);
+                    keysPressed();
+            }
+             else if(Greenfoot.isKeyDown("Down")) {
+                    setRotation(90);
+                    keysPressed();
+            }
+             else if(Greenfoot.isKeyDown("Left")) {
+                    setRotation(180);
+                    keysPressed();
+            }
+        
+        
+        
         
      
     } 
@@ -53,49 +72,53 @@ public class Player extends Actor
         int currentX = getX();
         int currentY = getY();
         if (wallCollision() == 1) {
-            Actor test = getOneObjectAtOffset(xDirection(this.getRotation()), yDirection(this.getRotation()), TestObstacle.class);
+         Actor test = getOneObjectAtOffset(offsetX(this.getRotation()), offsetY(this.getRotation()), TestObstacle.class);
             if (test == null) {
-            
-            if (Greenfoot.isKeyDown("Up")) {
-            setRotation(270);
-            move(10);  
-        }
-            if (Greenfoot.isKeyDown("Left")) {
-            setRotation(180);
-            move (10);   
-        }
-            if (Greenfoot.isKeyDown("Down")) {
-            setRotation(90);
-            move(10);
-        }
-            if (Greenfoot.isKeyDown("Right")) {
-            setRotation(0);
-            move(10);
-        }
+            setLocation(currentX + changeX(getRotation()), currentY + changeY(getRotation()));
+           
     }
     }
     }
     
-    public int xDirection(int direction) {
-        if (direction == 0) {
-            return 1;
+    public int changeX(int direction) {
+        if (getRotation() == 0) {
+            return speed;
         }
-        if (direction == 180) {
-            return -1;
+        if (getRotation() == 180) {
+            return -speed;
         }
         return 0;
     
     
-}
-
-    public int yDirection(int direction) {
-        if (direction == 90) {
-            return 1;
+    }
+   
+    public int changeY(int direction) {
+        if (getRotation() == 90) {
+            return speed;
         }
-        if (direction == 270) {
-            return -1;
+        if (getRotation() == 270) {
+            return -speed;
         }
         return 0;
     }
     
+    public int offsetX(int direction) {
+        if (getRotation() == 0) {
+            return speed + getImage().getWidth()/2;
+        }
+        if (getRotation() == 180) {
+            return -speed - getImage().getWidth()/2;
+        }
+        return 0;
+    }
+    
+    public int offsetY(int direction) {
+        if (getRotation() == 90) {
+            return speed + getImage().getHeight()/2;
+        }
+        if (getRotation() == 270) {
+            return -speed - getImage().getHeight()/2;
+        }
+        return 0;
+    }
 }
