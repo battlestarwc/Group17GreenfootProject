@@ -14,7 +14,12 @@ public class Wall extends Actor
     private Random r = new Random();
     private ArrayList<GreenfootImage> images  = new ArrayList<>();
 
-    /**
+	public Wall() {
+		this.r  = new Random();
+		this.setImage(this.images.get(this.r.nextInt() % this.images.size()));
+	}    
+
+/**
      * Act - do whatever the Wall wants to do. This method is called whenever
      * the 'Act' or 'Run' button gets pressed in the environment.
      */
