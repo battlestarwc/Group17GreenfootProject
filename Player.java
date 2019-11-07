@@ -24,19 +24,19 @@ public class Player extends Actor
     public void act() 
     {
         wallCollision();
-        if(Greenfoot.isKeyDown("Up")) {
+        if(Greenfoot.isKeyDown("Up") && this.getY() > -1500 && this.getY() < 1500) {
                 setRotation(270);
                 keysPressed();
             }
-             else if(Greenfoot.isKeyDown("Right")) {
+             else if(Greenfoot.isKeyDown("Right") && this.getX() > -1500 && this.getX() < 1500) {
                     setRotation(0);
                     keysPressed();
             }
-             else if(Greenfoot.isKeyDown("Down")) {
+             else if(Greenfoot.isKeyDown("Down") && this.getY() > -1500 && this.getY() < 1500) {
                     setRotation(90);
                     keysPressed();
             }
-             else if(Greenfoot.isKeyDown("Left")) {
+             else if(Greenfoot.isKeyDown("Left") && this.getX() > -1500 && this.getX() < 1500) {
                     setRotation(180);
                     keysPressed();
             }

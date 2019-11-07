@@ -66,7 +66,7 @@ public class MyWorld extends World
         addObject(new Player(), 300,300); 
         addObject(new Cannon(),200,500);
         addObject(new Rock(),200,500);
-        prepare();
+        //prepare();
     }
     
     /**
