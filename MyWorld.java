@@ -65,9 +65,9 @@ public class MyWorld extends World
         background.fill();
         //Test scrolling
         addObject(new Player(), 300,300); 
-        addObject(new Cannon(),200,500);
-        addObject(new Rock(),200,500);
-        //prepare();
+        //addObject(new Cannon(),200,500);
+        //addObject(new Rock(),200,500);
+        prepare();
     }
     
     /**
@@ -88,6 +88,7 @@ public class MyWorld extends World
      */
     private void prepare()
     {
+	/*
 	int x;
 	int y;
 	x = -500;
@@ -108,6 +109,22 @@ public class MyWorld extends World
 		addObject(new Wall(), x, y);
 		x--;
 	}
-	
+	*/
+	Vector<Integer> xes = new Vector<>();
+	Vector<Integer> yes = new Vector<>();
+	xes.add(200);
+	yes.add(500);
+	xes.add(-100);
+	yes.add(500);
+	xes.add(-400);
+	yes.add(500);
+	xes.add(-700);
+	yes.add(500);
+	xes.add(-700);
+	yes.add(200);
+	xes.add(-700);
+	yes.add(-100);
+	xes.add(-700);
+	yes.add(-400);
     }
 }
