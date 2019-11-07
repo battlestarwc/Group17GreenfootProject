@@ -1,5 +1,4 @@
-import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
-
+import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)import java.awt.Color;
 /**
  * Write a description of class MyWorld here.
  * 
@@ -62,7 +61,7 @@ public class MyWorld extends World
         // Create a new world with 600x400 cells with a cell size of 1x1 pixels.
         super(600, 600, 1, false);
         GreenfootImage background = getBackground();
-        background.setColor(Color.BLACK); 
+        background.setColor(new Color(80,80,80)); 
         background.fill();
         //Test scrolling
         addObject(new Player(), 300,300); 
