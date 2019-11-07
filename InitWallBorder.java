@@ -15,7 +15,7 @@ public class InitWallBorder {
 
 	public void load(World w) {
 		for (double i = 0; i < 360; i = i + 0.001) {
-			w.addObject(this.targetClass.newInstance(), Math.round(this.maxX * Math.sin( Math.toRadians(i) ) ), Math.round(this.maxY * Math.cos( Math.toRadians(1) )) );
+			w.addObject(this.targetClass.newInstance(), Math.round(this.maxX * Math.sin( Math.toRadians(i) ) ), Math.round(this.maxY * Math.cos( Math.toRadians(i) )) );
 		}	
 	}
 
