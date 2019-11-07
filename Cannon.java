@@ -12,6 +12,7 @@ public class Cannon extends Actor
     private int shotsFired; 
     private int  speed;
     
+    private GreenfootImage cannon = new GreenfootImage("Cannon.png");
     /**
      * An example of a method - replace this comment with your own
      *
@@ -33,8 +34,8 @@ public class Cannon extends Actor
     {
          
          
-        TestPlayer testplayer = (TestPlayer)getWorld().getObjects(TestPlayer.class).get(0);
-        turnTowards(testplayer.getX(),testplayer.getY());
+        Player player = (Player)getWorld().getObjects(Player.class).get(0);
+        turnTowards(player.getX(),player.getY());
         
     }    
     /**
@@ -43,7 +44,7 @@ public class Cannon extends Actor
     public void fire ()
     {
         
-        
-        
+        Rock rock= new Rock();
+        getWorld().addObject(rock,getX(),getY());
     }
 }

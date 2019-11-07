@@ -50,6 +50,7 @@ public class MyWorld extends World
 
     public void act() {
         scroll();
+        
     }
 
     /*
@@ -60,10 +61,25 @@ public class MyWorld extends World
     {    
         // Create a new world with 600x400 cells with a cell size of 1x1 pixels.
         super(600, 600, 1, false);
+        
         //Test scrolling
         addObject(new Player(), 300,300); 
+        addObject(new Cannon(),200,500);
+        addObject(new Rock(),200,500);
         prepare();
     }
+    
+    /**
+     * An example of a method - replace this comment with your own
+     *
+     * @param  y  a sample parameter for a method
+     * @return    the sum of x and y
+     */
+    public void addObject(Actor actor)
+    {
+        
+    }
+        
 
     /**
      * Prepare the world for the start of the program.
