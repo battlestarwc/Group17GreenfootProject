@@ -10,6 +10,7 @@ public class Rock extends Actor
 {
     private int life=15; 
     private int damage=3;
+    private GreenfootImage rock = new GreenfootImage("Rock.png");
     /**
      * The rock will hurt the player if the player gets hit 
      * 
@@ -17,7 +18,7 @@ public class Rock extends Actor
     public void act() 
     {
         move(-5);
-        checkBoundaries();
+        
         
     }    
     /**

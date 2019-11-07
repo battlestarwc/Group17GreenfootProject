@@ -1,0 +1,7 @@
+#BlueJ class context
+comment0.target=InitWallBorder
+comment1.params=maxx\ maxy\ target
+comment1.target=InitWallBorder(int,\ int,\ java.lang.Class)
+comment2.params=w
+comment2.target=void\ load(greenfoot.World)
+numComments=3
