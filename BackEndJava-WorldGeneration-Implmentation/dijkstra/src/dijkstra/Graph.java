@@ -82,10 +82,13 @@ public class Graph {
                 Iterator<Node> vItr = input.iterator();
                 while(vItr.hasNext()) {
                     if(shortest == null) {
-                        shortest = vItr.next();
+                        Node n = vItr.next();
+                        if(n.getLastVisited() == to) {
+                            shortest = n;
+                        }
                     } else {
                         Node n = vItr.next();
-                        if (n.getCost() < shortest.getCost()) {
+                        if (n.getCost() < shortest.getCost() && n.getLastVisited() == to) {
                             shortest = n;
                         }
                     }
