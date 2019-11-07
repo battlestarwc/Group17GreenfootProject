@@ -149,7 +149,7 @@ public class MyWorld extends World
 	yes.add(400);
     	Iterator<Integer> x = xes.iterator();
 	Iterator<Integer> y = yes.iterator();
-	while(x.hasNext() && y.hasNexT()) {
+	while(x.hasNext() && y.hasNext()) {
 		addObject(new Wall(), x.next(), y.next());
 	}
 	}
