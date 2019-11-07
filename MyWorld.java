@@ -87,5 +87,26 @@ public class MyWorld extends World
      */
     private void prepare()
     {
+	int x;
+	int y;
+	x = -1500;
+	y = -1500;
+	while(y < 1501) {
+		addObject(new Wall(), x, y);
+		y++;
+	}
+	while(x < 1501) {
+		addObject(new Wall(), x, y);
+		x++;
+	}
+	while(y > -1501) {
+		addObject(new Wall(), x, y);
+		y--;
+	}
+	while(x > -1501) {
+		addObject(new Wall(), x, y);
+		x--;
+	}
+	
     }
 }
