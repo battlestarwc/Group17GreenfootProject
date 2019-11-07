@@ -9,7 +9,7 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 public class MyWorld extends World
 {
 
-    private Class playerType = TestPlayer.class;
+    private Class playerType = Player.class;
     private int screenSizeX = 600;
     private int screenSizeY = 600;
     private int playerTargetX = screenSizeX / 2;
@@ -61,11 +61,7 @@ public class MyWorld extends World
         // Create a new world with 600x400 cells with a cell size of 1x1 pixels.
         super(600, 600, 1, false);
         //Test scrolling
-        addObject(new TestPlayer(), 300,300); 
-        addObject(new Cannon(), 100,100);
-        addObject(new Cannon(),400,200);
-        addObject(new Bullet(),100,100);
-        addObject(new Rock(),400,200);
+        addObject(new Player(), 300,300); 
         prepare();
     }
 
