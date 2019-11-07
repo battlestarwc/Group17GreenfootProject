@@ -6,14 +6,26 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  * @author (your name) 
  * @version (a version number or a date)
  */
-public class Rock extends Cannon
+public class Rock extends Actor
 {
+    private int life=15; 
+    private int damage=3;
     /**
-     * Act - do whatever the Rock wants to do. This method is called whenever
-     * the 'Act' or 'Run' button gets pressed in the environment.
+     * The rock will hurt the player if the player gets hit 
+     * 
      */
     public void act() 
     {
-        // Add your action code here.
+        move(-5);
+        checkBoundaries();
+        
     }    
+    /**
+     * 
+     */
+    public void checkBoundaries()
+    {
+        
+        
+    }
 }

@@ -15,12 +15,13 @@ public class Bomb extends Actor
     public void act() 
     {
         setLocation(getX(), getY());
-        List <Player> players=getObjectsInRange(100,player.class); 
-            for (Player b : player){
+        
+        List <TestPlayer> nearby =getObjectsInRange(15,TestPlayer.class); 
+            for (TestPlayer b : nearby){
                 getWorld().removeObject(b); 
         
             }
-        getWorld.removeObject(this);
+        getWorld().removeObject(this);
         
 }
 }

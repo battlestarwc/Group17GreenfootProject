@@ -8,12 +8,42 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  */
 public class Cannon extends Actor
 {
+    private int cannonReloadTime; 
+    private int shotsFired; 
+    private int  speed;
+    
     /**
-     * Act - do whatever the Cannon wants to do. This method is called whenever
-     * the 'Act' or 'Run' button gets pressed in the environment.
+     * An example of a method - replace this comment with your own
+     *
+     * @param  y  a sample parameter for a method
+     * @return    the sum of x and y
+     */
+    public Cannon ()
+    {
+        
+        
+        
+    }
+
+    /**
+     * Cannon will shoot rock or bullet to player 
+     * 
      */
     public void act() 
     {
-        // Add your action code here.
+         
+         
+        TestPlayer testplayer = (TestPlayer)getWorld().getObjects(TestPlayer.class).get(0);
+        turnTowards(testplayer.getX(),testplayer.getY());
+        
     }    
+    /**
+     * Cannon fires
+     */
+    public void fire ()
+    {
+        
+        
+        
+    }
 }
