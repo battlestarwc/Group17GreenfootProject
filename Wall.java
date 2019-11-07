@@ -15,7 +15,7 @@ public class Wall extends Actor
     private ArrayList<GreenfootImage> images  = new ArrayList<>();
 
 	public Wall() {
-	    this.setImage(new GreenfootImage("images/wall2.png"));
+	    this.setImage(new GreenfootImage("images/WechatIMG1732.png"));
 		//this.r  = new Random();
 		//this.setImage(this.images.get(this.r.nextInt() % this.images.size()));
 	}    
