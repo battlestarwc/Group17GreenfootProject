@@ -1,5 +1,5 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
-import java.util.List;
+
 /**
  * Write a description of class Player here.
  * 
@@ -12,83 +12,112 @@ public class Player extends Actor
      * Act - do whatever the Player wants to do. This method is called whenever
      * the 'Act' or 'Run' button gets pressed in the environment.
      */
-    private int coins; 
-    
-    
+    private int coins;
+    private int speed;
+    private int visionRange;
     public Player() {
-        coins = 0;
+            coins = 0;
+            speed = 5;
+            visionRange = 100;
     }
+    
     public void act() 
     {
         wallCollision();
-        keysPressed();
+        if(Greenfoot.isKeyDown("Up")) {
+                setRotation(270);
+                keysPressed();
+            }
+             else if(Greenfoot.isKeyDown("Right")) {
+                    setRotation(0);
+                    keysPressed();
+            }
+             else if(Greenfoot.isKeyDown("Down")) {
+                    setRotation(90);
+                    keysPressed();
+            }
+             else if(Greenfoot.isKeyDown("Left")) {
+                    setRotation(180);
+                    keysPressed();
+            }
         
-    }    
-    
-    //can change to whatever the goal is
-    public int getCoins() {
-        return coins;
-    }
-    
+        
+        
+        
+     
+    } 
     
     
-    //returns 1 if there is no wall in front, -1 if there is 
     public int wallCollision() {
-        // uses offset function,but there is no wall class yet
+        //returns 1 if no wall is in front of the player, -1 if there is
+        // if (this.isTouching(class wall)) {
+        //      return -1;
+            
+        //   }
+        //will use offset instead of isTouching
+    
+        
         return 1;
+        
+        
     }
     
-    //works only if the player is viewed eagle eyed, like the mockup, will change if we dont use that
-    //Currently, if the player hits an object of TestObstacle, like a hole, then it will stop.
+    public int getCoins() //can change to whatever the objective is
+    {
+        return coins;
+        
+    }
+    
     public void keysPressed() {
+        int currentX = getX();
+        int currentY = getY();
         if (wallCollision() == 1) {
-            Actor test = 
-            getOneObjectAtOffset(changeX(this.getRotation()),changeY(this.getRotation()),TestObstacle.class);
+         Actor test = getOneObjectAtOffset(offsetX(this.getRotation()), offsetY(this.getRotation()), TestObstacle.class);
             if (test == null) {
-            if (Greenfoot.isKeyDown("Up")) {
-                this.setRotation(270);
-                move(5);
-            }
-            if (Greenfoot.isKeyDown("Down")) {
-                this.setRotation(90);
-                move(5);
-            }
-            if (Greenfoot.isKeyDown("Left")) {
-                this.setRotation(180);
-                move(5);
-            }
-            if (Greenfoot.isKeyDown("RIght")) {
-                this.setRotation(0);
-                move(5);
-            }
-        }
+            setLocation(currentX + changeX(getRotation()), currentY + changeY(getRotation()));
+           
     }
-        
-        
-        
-        
-        
     }
-    
-    
+    }
     
     public int changeX(int direction) {
-        if (direction == 0) {
-            return -5;
+        if (getRotation() == 0) {
+            return speed;
         }
-        if (direction == 180) {
-            return 5;
+        if (getRotation() == 180) {
+            return -speed;
         }
         return 0;
-        
+    
+    
+    }
+   
+    public int changeY(int direction) {
+        if (getRotation() == 90) {
+            return speed;
+        }
+        if (getRotation() == 270) {
+            return -speed;
+        }
+        return 0;
     }
     
-    public int changeY(int direction) {
-        if (direction == 90) {
-            return 11;
+    public int offsetX(int direction) {
+        if (getRotation() == 0) {
+            return speed + getImage().getWidth()/2;
         }
-        if (direction == 270) {
-            return 5;
+        if (getRotation() == 180) {
+            return -speed - getImage().getWidth()/2;
+        }
+        return 0;
+    }
+    
+    public int offsetY(int direction) {
+        if (getRotation() == 90) {
+            return speed + getImage().getHeight()/2;
+        }
+        if (getRotation() == 270) {
+            return -speed - getImage().getHeight()/2;
         }
         return 0;
     }
