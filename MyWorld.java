@@ -89,21 +89,21 @@ public class MyWorld extends World
     {
 	int x;
 	int y;
-	x = -1500;
-	y = -1500;
-	while(y < 1501) {
+	x = -500;
+	y = -500;
+	while(y < 501) {
 		addObject(new Wall(), x, y);
 		y++;
 	}
-	while(x < 1501) {
+	while(x < 501) {
 		addObject(new Wall(), x, y);
 		x++;
 	}
-	while(y > -1501) {
+	while(y > -501) {
 		addObject(new Wall(), x, y);
 		y--;
 	}
-	while(x > -1501) {
+	while(x > -501) {
 		addObject(new Wall(), x, y);
 		x--;
 	}
