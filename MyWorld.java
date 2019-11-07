@@ -1,4 +1,5 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)import java.awt.Color;
+import java.util.*;
 /**
  * Write a description of class MyWorld here.
  * 
@@ -126,5 +127,10 @@ public class MyWorld extends World
 	yes.add(-100);
 	xes.add(-700);
 	yes.add(-400);
-    }
+    	Iterator<Integer> x = xes.iterator();
+	Iterator<Integer> y = yes.iterator();
+	while(x.hasNext() && y.hasNexT()) {
+		addObject(new Wall(), x.next(), y.next());
+	}
+	}
 }
