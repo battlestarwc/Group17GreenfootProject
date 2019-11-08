@@ -78,10 +78,10 @@ public class MyWorld extends World
      * @param  y  a sample parameter for a method
      * @return    the sum of x and y
      */
-    public void addObject(Actor actor)
-    {
-        
-    }
+    //public void addObject(Actor actor)
+    //{
+    //    
+    //}
         
 
     /**

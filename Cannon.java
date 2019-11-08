@@ -42,12 +42,11 @@ public class Cannon extends Actor
 		if (r.nextInt() % 60 == 42) {
 			this.fire();
 		}
-		} catch	 (Exception e) {
+		} } catch	 (Exception e) {
 			System.out.println(e);
 		}
 	}
-        
-    }    
+    
     /**
      * Cannon fires
      */
