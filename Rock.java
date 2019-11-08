@@ -15,11 +15,16 @@ public class Rock extends Actor
      * The rock will hurt the player if the player gets hit 
      * 
      */
+
+	public Rock() {
+	Actor target = (Actor) (getWorld().getObjects(Player.class).get(0));
+        turnTowards(target.getX(), target.getY());	
+	}
     public void act() 
     {
-       Actor target = (Actor) (getWorld().getObjects(Player.class).get(0)); 
-        turnTowards(target.getX(), target.getY());
-	move(2);
+       //Actor target = (Actor) (getWorld().getObjects(Player.class).get(0)); 
+        //turnTowards(target.getX(), target.getY());
+	move(5);
         checkBoundaries();
     }    
     /**
