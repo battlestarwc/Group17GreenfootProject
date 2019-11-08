@@ -49,7 +49,7 @@ public class Player extends Actor
 	}       
 
 	if(this.life <= 0) {
-		this.getWorld().removeObject(this);
+		//this.getWorld().removeObject(this);
 		Greenfoot.stop();
 	}
         
