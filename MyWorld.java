@@ -65,7 +65,7 @@ public class MyWorld extends World
         background.setColor(new Color(80,80,80)); 
         background.fill();
         //Test scrolling
-        addObject(new Player(), 300,300); 
+        addObject(new Player(), 0,0); 
         //addObject(new Cannon(),200,500);
         //addObject(new Rock(),200,500);
         prepare();
