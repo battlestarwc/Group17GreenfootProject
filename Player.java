@@ -73,7 +73,7 @@ public class Player extends Actor
     
     public int getCoins() //can change to whatever the objective is
     {
-        return coins;
+        return key.keyNumber;
         
     }
     
