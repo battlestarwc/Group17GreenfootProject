@@ -13,7 +13,6 @@ public class Bullet extends Actor
      * the 'Act' or 'Run' button gets pressed in the environment.
      */
     private GreenfootImage bullet= new GreenfootImage("Bullet.png");
-    private int life = 15; 
     private int damage = 3; 
     
     public void act()
