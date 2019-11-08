@@ -34,11 +34,14 @@ public class Cannon extends Actor
     public void act() 
     {
          
-         
+        try { 
         Player player = (Player)getWorld().getObjects(Player.class).get(0);
         turnTowards(player.getX(),player.getY());
 	if (r.nextInt() % 60 == 42) {
 		this.fire();
+	}
+	} catch (Exception e) {
+		System.out.println(e);
 	}
         
     }    
