@@ -152,5 +152,6 @@ public class MyWorld extends World
 	while(x.hasNext() && y.hasNext()) {
 		addObject(new Wall(), x.next(), y.next());
 	}
+	addObject(new Cannon(), 300, 300);
 	}
 }

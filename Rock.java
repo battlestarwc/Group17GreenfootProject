@@ -9,7 +9,7 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 public class Rock extends Actor
 {
     private int life=15; 
-    private int damage=3;
+    public static final damage=3;
     private GreenfootImage rock = new GreenfootImage("Rock.png");
     /**
      * The rock will hurt the player if the player gets hit 

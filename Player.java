@@ -15,10 +15,12 @@ public class Player extends Actor
     private int coins;
     private int speed;
     private int visionRange;
+    private int life;
     public Player() {
             coins = 0;
             speed = 5;
             visionRange = 100;
+	    this.life = 30;
     }
     
     public void act() 
@@ -42,7 +44,14 @@ public class Player extends Actor
             }
         
         
-        
+ 	if(isTouching(Rock.class)) {
+		this.life -= Rock.damage;
+	}       
+
+	if(this.life <= 0) {
+		this.getWorld().removeObject(this);
+		Greenfoot.stop();
+	}
         
      
     } 
