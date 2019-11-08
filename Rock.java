@@ -31,7 +31,7 @@ public class Rock extends Actor
         		turnTowards(target.getX(), target.getY());
 			targetSet = true;
 		} catch (Exception e) {
-			targetSet = False;
+			targetSet = false;
 		}
 	}
 	if(targetSet == true) {
