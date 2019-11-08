@@ -35,7 +35,7 @@ public class Rock extends Actor
 		}
 	}
 	if(targetSet == true) {
-		move(5);
+		move(2);
 	}
         checkBoundaries();
     }    
