@@ -1,5 +1,5 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
-
+import java.util.*;
 /**
  * Write a description of class Cannon here.
  * 
@@ -8,6 +8,7 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  */
 public class Cannon extends Actor
 {
+    private Random r;
     private int cannonReloadTime; 
     private int shotsFired; 
     private int  speed;
@@ -22,7 +23,7 @@ public class Cannon extends Actor
     public Cannon ()
     {
         
-        
+        r = new Random();
         
     }
 
@@ -36,6 +37,9 @@ public class Cannon extends Actor
          
         Player player = (Player)getWorld().getObjects(Player.class).get(0);
         turnTowards(player.getX(),player.getY());
+	if (r.nextInt() % 60 == 42) {
+		this.fire();
+	}
         
     }    
     /**

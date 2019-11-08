@@ -17,16 +17,20 @@ public class Rock extends Actor
      */
     public void act() 
     {
-        move(-5);
-        
-        
+       Actor target = (Actor) (getWorld().getObjects(Player.class).get(0)); 
+        turnTowards(target.getX(), target.getY());
+	move(2);
+        checkBoundaries();
     }    
     /**
      * 
      */
     public void checkBoundaries()
     {
-        
+	//HARD CODED BOUNDRIES FOR BETA ONLY
+        if (Math.abs(this.getX()) > 2000 || Math.abs(this.getY()) > 2000) {
+		this.getWorld().removeObject(this);
+	}
         
     }
 }
