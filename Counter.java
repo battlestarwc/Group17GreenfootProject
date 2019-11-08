@@ -8,14 +8,14 @@ import greenfoot.Color;
  */
 public class Counter extends Actor
 {   
-    private int score = 0;
+    private static int score = 0;
     /**
      * Act - do whatever the Counter wants to do. This method is called whenever
      * the 'Act' or 'Run' button gets pressed in the environment.
      */
     public void act() 
     {
-        setImage(new GreenfootImage("score :" + score,100, Color.GREEN,new Color(0,0,0)));
+        //setImage(new GreenfootImage("score :" + score,100, Color.GREEN,new Color(0,0,0)));
         getCounter();// Add your action code here.
     }  
     /**
@@ -23,7 +23,11 @@ public class Counter extends Actor
      */
     public void getCounter()
     {
-        score++;
+        score = key.keyNumber;
     }
+
+	public static int getScore() {
+		return score;
+	}
     
 }
