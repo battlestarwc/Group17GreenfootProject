@@ -69,6 +69,7 @@ public class MyWorld extends World
 	addObject(new key(), 300, 300);  
         //addObject(new Cannon(),200,500);
         //addObject(new Rock(),200,500);
+        addObject(new ScoreBoard(200, 50), 0,0);
         prepare();
     }
     

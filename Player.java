@@ -71,48 +71,30 @@ public class Player extends Actor
         
     }
     
-    public int getCoins() //can change to whatever the objective is
+    public int getKeys() //can change to whatever the objective is
     {
         return key.keyNumber;
         
     }
     
+    public int getLives() {
+        return life;
+    }
     public void keysPressed() {
-        int currentX = getX();
-        int currentY = getY();
+        
         if (wallCollision() == 1) {
          Actor test = getOneObjectAtOffset(offsetX(this.getRotation()), offsetY(this.getRotation()), TestObstacle.class);
             if (test == null) {
-            setLocation(currentX + changeX(getRotation()), currentY + changeY(getRotation()));
+            move(speed);
            
     }
     }
 	if(wallCollision() != 1) {
-		setLocation(currentX - changeX(getRotation()), currentY - changeY(getRotation()));
+		move(-speed);
 	} 
     }
     
-    public int changeX(int direction) {
-        if (getRotation() == 0) {
-            return speed;
-        }
-        if (getRotation() == 180) {
-            return -speed;
-        }
-        return 0;
     
-    
-    }
-   
-    public int changeY(int direction) {
-        if (getRotation() == 90) {
-            return speed;
-        }
-        if (getRotation() == 270) {
-            return -speed;
-        }
-        return 0;
-    }
     
     public int offsetX(int direction) {
         if (getRotation() == 0) {
