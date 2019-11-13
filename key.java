@@ -8,7 +8,7 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  */
 public class key extends Counter
 {   
-    private int keyNumber = 0;
+    public static int keyNumber = 0;
     /**
      * Act - do whatever the key wants to do. This method is called whenever
      * the 'Act' or 'Run' button gets pressed in the environment.
@@ -16,7 +16,7 @@ public class key extends Counter
     public void act() 
     {
         setLocation(300,100);
-        GreenfootImage key = new GreenfootImage("key.png");
+        GreenfootImage key = new GreenfootImage("Key.png");
         getKey();// A// Add your action code here.
     }    
     /**
@@ -24,9 +24,9 @@ public class key extends Counter
      * if you already opened a box , you will use off a key.
      */
     public void getKey() {
-        if(isTouching(key.class)) {
-            Actor actor = getOneIntersectingObject(key.class);
-            getWorld().removeObject(actor);
+        if(isTouching(Player.class)) {
+            Actor actor = getOneIntersectingObject(Player.class);
+            getWorld().removeObject(this);
             keyNumber++;
         }
     

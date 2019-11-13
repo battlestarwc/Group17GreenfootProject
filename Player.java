@@ -15,34 +15,43 @@ public class Player extends Actor
     private int coins;
     private int speed;
     private int visionRange;
+    private int life;
     public Player() {
             coins = 0;
             speed = 5;
             visionRange = 100;
+	    this.life = 30;
     }
     
     public void act() 
     {
         wallCollision();
-        if(Greenfoot.isKeyDown("Up")) {
+        if(Greenfoot.isKeyDown("Up") && this.getY() > -1500 && this.getY() < 1500) {
                 setRotation(270);
                 keysPressed();
             }
-             else if(Greenfoot.isKeyDown("Right")) {
+             else if(Greenfoot.isKeyDown("Right") && this.getX() > -1500 && this.getX() < 1500) {
                     setRotation(0);
                     keysPressed();
             }
-             else if(Greenfoot.isKeyDown("Down")) {
+             else if(Greenfoot.isKeyDown("Down") && this.getY() > -1500 && this.getY() < 1500) {
                     setRotation(90);
                     keysPressed();
             }
-             else if(Greenfoot.isKeyDown("Left")) {
+             else if(Greenfoot.isKeyDown("Left") && this.getX() > -1500 && this.getX() < 1500) {
                     setRotation(180);
                     keysPressed();
             }
         
         
-        
+ 	if(isTouching(Rock.class)) {
+		this.life -= Rock.damage;
+	}       
+
+	if(this.life <= 0) {
+		this.getWorld().removeObject(this);
+		Greenfoot.stop();
+	}
         
      
     } 
@@ -50,10 +59,10 @@ public class Player extends Actor
     
     public int wallCollision() {
         //returns 1 if no wall is in front of the player, -1 if there is
-        // if (this.isTouching(class wall)) {
-        //      return -1;
+         if (this.isTouching(Wall.class)) {
+              return -1;
             
-        //   }
+           }
         //will use offset instead of isTouching
     
         
@@ -78,6 +87,9 @@ public class Player extends Actor
            
     }
     }
+	if(wallCollision() != 1) {
+		setLocation(currentX - changeX(getRotation()), currentY - changeY(getRotation()));
+	} 
     }
     
     public int changeX(int direction) {

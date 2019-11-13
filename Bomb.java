@@ -16,12 +16,7 @@ public class Bomb extends Actor
     {
         setLocation(getX(), getY());
         
-        List <TestPlayer> nearby =getObjectsInRange(15,TestPlayer.class); 
-            for (TestPlayer b : nearby){
-                getWorld().removeObject(b); 
         
-            }
-        getWorld().removeObject(this);
         
 }
 }
