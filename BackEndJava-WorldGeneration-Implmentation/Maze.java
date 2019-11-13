@@ -7,11 +7,13 @@ public class Maze implments Runnable {
 	private final int xSize;
 	private final int ySize;
 	private final Random r;
+	private HashSet<Actor> visited;
 
 	public Maze(World w, int x, int y) {
 		this.world = w;
 		this.xSize = x;
 		this.ySize = y;
+		this.visited = new HashSet<>();
 		this.r = new Random();
 	}
 
@@ -34,6 +36,11 @@ public class Maze implments Runnable {
 	//if not the right number of neighbors, create new nulls
 	//NEVER touch the lastTile
 	private void algo(Actor lastTile, Actor targetTile) {
+		if(this.visited.contains(targetTile)) {
+			return;
+		}
+		this.visited.add(targetFile);
+
 		//get neigbors
 		List<Actor> neighbors = targetTile.getNeighbors(30, false, Tile.class);
 		if(neighbors.isEmpty()) {
@@ -56,17 +63,32 @@ public class Maze implments Runnable {
 		}
 		
 
-		//TODO: Edit neighbors
+		//Edit neighbors
+		int cnt = 0;
+		while(cnt < howMany) {
+			for(Actor a : neighbors) {
+				if(cnt < howMany && a != lastTile && !this.visited.contains(a)) {
+					if(this.r.nextInt() % 5 == 2) {
+						Tile b = (Tile) a
+						b.setWall(False);
+					}
+				}
+			}
+		}
 
 		//return case
 		if(howMany > 1) {
 			for(Actor a : neighbors) {
-				if (a != lastTile) {
+				if (a != lastTile && (Tile) a.isWall() == False) {
 					this.algo(targetTile, a);
 				}
 			}
 		}
 		
+	}
+
+	public void run() {
+		this.setup();
 	}
 
 
