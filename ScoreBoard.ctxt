@@ -8,6 +8,4 @@ comment2.params=text\ x\ y\ color\ height
 comment2.target=void\ drawString(java.lang.String,\ int,\ int,\ greenfoot.Color,\ int)
 comment3.params=
 comment3.target=void\ act()
-comment4.params=
-comment4.target=void\ drawScores()
-numComments=5
+numComments=4

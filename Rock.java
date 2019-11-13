@@ -36,6 +36,7 @@ public class Rock extends Actor
 	}
 	if(targetSet == true) {
 		move(2);
+		
 	}
         checkBoundaries();
     }    
@@ -49,5 +50,8 @@ public class Rock extends Actor
 		this.getWorld().removeObject(this);
 	}
         
+    }
+    public void remove() {
+        getWorld().removeObject(this);
     }
 }
