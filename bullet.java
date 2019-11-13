@@ -6,22 +6,37 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  * @author (your name) 
  * @version (a version number or a date)
  */
-public class Bullet extends Actor
+public class Bullet extends SmoothMover
 {
     /**
      * Act - do whatever the Bullet wants to do. This method is called whenever
      * the 'Act' or 'Run' button gets pressed in the environment.
      */
     private GreenfootImage bullet= new GreenfootImage("Bullet.png");
-    private int damage = 3; 
+    private int life = 15; 
+    private int damage = 1; 
     
-    public void act()
-    
-    
+    public Bullet()
     {
         
-        
-        
-        move(-5);
+       
+    }
+    
+    public void act() 
+    
+    {
+       
+       move(2);
+     
     }    
+    /**
+     * 
+     */
+    public void lookForWall()
+     {
+        if (isTouching(Wall.class))
+        {
+            getWorld().removeObject(this);
+        }
+    }
 }

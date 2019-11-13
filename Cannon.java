@@ -12,6 +12,7 @@ public class Cannon extends Actor
     private int cannonReloadTime; 
     private int shotsFired; 
     private int  speed;
+    private int reloadDelayCount;
     
     private GreenfootImage cannon = new GreenfootImage("Cannon.png");
     /**
@@ -22,7 +23,8 @@ public class Cannon extends Actor
      */
     public Cannon ()
     {
-        
+        cannonReloadTime=1; 
+        reloadDelayCount = 5; 
         r = new Random();
         
     }
@@ -33,20 +35,25 @@ public class Cannon extends Actor
      */
     public void act() 
     {
+         turnAtEdge();
          
-        try { 
-        Player player = (Player)getWorld().getObjects(Player.class).get(0);
-        turnTowards(player.getX(),player.getY());
-	if ( Math.sqrt( Math.pow(this.getX() - player.getX(), 2) + Math.pow(this.getY() - player.getY(), 2) ) < 200) { 
-		turnTowards(player.getX(),player.getY());
-		if (r.nextInt() % 60 == 42) {
-			this.fire();
-		}
-		} } catch	 (Exception e) {
-			System.out.println(e);
-		}
-	}
-    
+      
+		
+         
+		
+	
+    }
+    /**
+     * 
+     */
+    public void turnAtEdge()
+    {
+        if (isAtEdge())
+        {
+            turn(Greenfoot.getRandomNumber(120)-35);
+        }
+        
+    }
     /**
      * Cannon fires
      */
@@ -55,5 +62,7 @@ public class Cannon extends Actor
         
         Rock rock= new Rock();
         getWorld().addObject(rock,getX(),getY());
+        
+        }
     }
-}
+

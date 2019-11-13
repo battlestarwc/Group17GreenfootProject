@@ -9,9 +9,10 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 public class Rock extends Actor
 {
     private int life=15; 
-    public static final int damage=3;
+    public static final int damage=1;
     private boolean targetSet = false;
     private GreenfootImage rock = new GreenfootImage("Rock.png");
+    private int speed=5; 
     /**
      * The rock will hurt the player if the player gets hit 
      * 
@@ -37,17 +38,21 @@ public class Rock extends Actor
 	if(targetSet == true) {
 		move(2);
 	}
-        checkBoundaries();
-    }    
+         Player player = (Player) getOneIntersectingObject(Player.class);
+     if(player != null){
+         Greenfoot.stop();
+         lookForWall();
+    } 
+    }
     /**
      * 
      */
-    public void checkBoundaries()
-    {
-	//HARD CODED BOUNDRIES FOR BETA ONLY
-        if (Math.abs(this.getX()) > 2000 || Math.abs(this.getY()) > 2000) {
-		this.getWorld().removeObject(this);
-	}
+      public void lookForWall()
+      {
+	if (isTouching(Wall.class))
+        {
+            removeTouching(Rock.class);
+        }
         
-    }
+      }
 }

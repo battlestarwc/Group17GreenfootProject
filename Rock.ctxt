@@ -7,6 +7,6 @@ comment1.text=\r\n\ The\ rock\ will\ hurt\ the\ player\ if\ the\ player\ gets\ h
 comment2.params=
 comment2.target=void\ act()
 comment3.params=
-comment3.target=void\ checkBoundaries()
+comment3.target=void\ lookForWall()
 comment3.text=\r\n\ \r\n
 numComments=4
