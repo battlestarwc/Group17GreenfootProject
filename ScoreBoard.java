@@ -29,7 +29,8 @@ public class ScoreBoard extends Actor
     // The background colors:
     private static final Color BACKGROUND_COLOR = new Color(0xFF, 0xFF, 0xFF, 0xB0);
     private static final Color BACKGROUND_HIGHLIGHT_COLOR = new Color(180, 230, 255, 0xB0);
-
+    private int tempLives = 0;
+    private int tempKeys = 0;
     /**
      * Constructor for objects of class ScoreBoard.
      * <p>
@@ -42,35 +43,53 @@ public class ScoreBoard extends Actor
         getImage().setColor(BACKGROUND_COLOR);
         getImage().fill();
         
-        drawString("Lives:", 5,5 , MAIN_COLOR, HEADER_TEXT_HEIGHT);
-        drawString("Keys:", 5,25, MAIN_COLOR, HEADER_TEXT_HEIGHT);
-        
+        drawString("Lives: ", 5,5 , MAIN_COLOR, HEADER_TEXT_HEIGHT);
+        drawString("Keys: ", 5,25, MAIN_COLOR, HEADER_TEXT_HEIGHT);
+         
     }
     
-    public void act() {
-
-        drawScores();
     
-        
-    }
     
     private void drawString(String text, int x, int y, Color color, int height)
     {
         getImage().drawImage(new GreenfootImage(text, height, color, new Color (0,0,0,0)), x, y);
+        
+        
+        
+        
     }
     
+    
+    public void act() {
+        List<Player> test = getWorld().getObjects(Player.class);
+        if (test.get(0).getLives() != tempLives) {
+            getImage().setColor(SCORE_COLOR);
+            drawString(Integer.toString(test.get(0).getLives()), 75, 5, MAIN_COLOR, HEADER_TEXT_HEIGHT);
+            //getImage().fillRect(75,5,25,25);
+            
+        }
+        if (test.get(0).getKeys()!= tempKeys) {
+        drawString(Integer.toString(test.get(0).getKeys()), 75, 25, MAIN_COLOR, HEADER_TEXT_HEIGHT);
+    }
+    }
     private void drawScores()
     {
     
         
         List<Player> test = getWorld().getObjects(Player.class);
-        int tempLives = test.get(0).getLives(); 
+        int lives = test.get(0).getLives(); 
+        int key = test.get(0).getKeys();
+        
+     
+            
         drawString(Integer.toString(test.get(0).getLives()), 75, 5, MAIN_COLOR, HEADER_TEXT_HEIGHT);
+        
+        
         drawString(Integer.toString(test.get(0).getKeys()), 75, 25, MAIN_COLOR, HEADER_TEXT_HEIGHT);
-    
+        
              return;
     }
-
+    
         
     
     
