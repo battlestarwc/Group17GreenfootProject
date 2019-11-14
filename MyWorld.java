@@ -68,11 +68,11 @@ public class MyWorld extends World
         background.fill();
         //Test scrolling
         addObject(new Player(), 0,0);
-	addObject(new key(), 300, 300);  
-        //addObject(new Cannon(),200,500);
-        //addObject(new Rock(),200,500);
+	addObject(new Key(), 300, 300);  
+        addObject(new Cannon(),200,500);
+        addObject(new Rock(),200,500);
         addObject(new ScoreBoard(200, 50), 0,0);
-        setPaintOrder(ScoreBoard.class, Player.class, key.class);
+        setPaintOrder(ScoreBoard.class, Player.class, Key.class);
 
         prepare();
     }
