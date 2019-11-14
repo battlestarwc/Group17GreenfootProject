@@ -3,10 +3,18 @@ comment0.target=Rock
 comment0.text=\n\ Write\ a\ description\ of\ class\ Rock\ here.\n\ \n\ @author\ (your\ name)\ \n\ @version\ (a\ version\ number\ or\ a\ date)\n
 comment1.params=
 comment1.target=Rock()
+<<<<<<< HEAD
 comment1.text=\n\ The\ rock\ will\ hurt\ the\ player\ if\ the\ player\ gets\ hit\ \n\ \n
+=======
+comment1.text=\r\n\ The\ rock\ will\ hurt\ the\ player\ if\ the\ player\ gets\ hit\ \r\n\ \r\n
+>>>>>>> master
 comment2.params=
 comment2.target=void\ act()
 comment3.params=
 comment3.target=void\ checkBoundaries()
+<<<<<<< HEAD
 comment3.text=\n\ \n
+=======
+comment3.text=\r\n\ \r\n
+>>>>>>> master
 numComments=4

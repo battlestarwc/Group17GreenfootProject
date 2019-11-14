@@ -8,15 +8,20 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  */
 public class Bomb extends Actor
 {
+     
+    private int damage = 10; 
     /**
      * 
      * 
      */
     public void act() 
     {
-        setLocation(getX(), getY());
         
         
+<<<<<<< HEAD
+=======
+        
+>>>>>>> master
         
 }
 }

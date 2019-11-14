@@ -49,7 +49,11 @@ public class Player extends Actor
 	}       
 
 	if(this.life <= 0) {
+<<<<<<< HEAD
 		this.getWorld().removeObject(this);
+=======
+		//this.getWorld().removeObject(this);
+>>>>>>> master
 		Greenfoot.stop();
 	}
         
@@ -73,7 +77,7 @@ public class Player extends Actor
     
     public int getCoins() //can change to whatever the objective is
     {
-        return coins;
+        return key.keyNumber;
         
     }
     

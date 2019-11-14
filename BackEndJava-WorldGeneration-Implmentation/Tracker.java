@@ -2,7 +2,7 @@ import greenfoot.*;
 import dijkstra.Graph;
 import java.util.Vector;
 
-public class Tracker() extends Runnable {
+public class Tracker() implements Runnable {
 
 	private final World world;
 	private final Actor from;
@@ -14,5 +14,7 @@ public class Tracker() extends Runnable {
 		this.from = from;
 		this.to = to;
 	}
+
+	public void addPoint(
 
 }

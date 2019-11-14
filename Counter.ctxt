@@ -1,5 +1,6 @@
 #BlueJ class context
 comment0.target=Counter
+<<<<<<< HEAD
 comment0.text=\n\ Write\ a\ description\ of\ class\ Counter\ here.\n\ \n\ @author\ (your\ name)\ \n\ @version\ (a\ version\ number\ or\ a\ date)\n
 comment1.params=
 comment1.target=void\ act()
@@ -7,6 +8,15 @@ comment1.text=\n\ Act\ -\ do\ whatever\ the\ Counter\ wants\ to\ do.\ This\ meth
 comment2.params=
 comment2.target=void\ getCounter()
 comment2.text=\n\ addScore\ if\ ball\ get\ fire,\ score\ will\ increase.\n
+=======
+comment0.text=\r\n\ Write\ a\ description\ of\ class\ Counter\ here.\r\n\ \r\n\ @author\ (your\ name)\ \r\n\ @version\ (a\ version\ number\ or\ a\ date)\r\n
+comment1.params=
+comment1.target=void\ act()
+comment1.text=\r\n\ Act\ -\ do\ whatever\ the\ Counter\ wants\ to\ do.\ This\ method\ is\ called\ whenever\r\n\ the\ 'Act'\ or\ 'Run'\ button\ gets\ pressed\ in\ the\ environment.\r\n
+comment2.params=
+comment2.target=void\ getCounter()
+comment2.text=\r\n\ addScore\ if\ ball\ get\ fire,\ score\ will\ increase.\r\n
+>>>>>>> master
 comment3.params=
 comment3.target=int\ getScore()
 numComments=4
