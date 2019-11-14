@@ -5,8 +5,10 @@ class.Bomb.image=Bomb.png
 class.Bullet.image=Bullet.png
 >>>>>>> master
 class.Cannon.image=Cannon.png
+class.Key.image=Key.png
 class.Player.image=smiley2.png
 class.Rock.image=Rock.png
+<<<<<<< HEAD
 class.TestObstacle.image=snowman.png
 class.TestPlayer.image=person.png
 class.Wall.image=wall1.png
@@ -58,11 +60,52 @@ dependency2.to=Player
 dependency2.type=UsesDependency
 dependency3.from=MyWorld
 dependency3.to=key
+=======
+dependency1.from=MyWorld
+dependency1.to=Player
+dependency1.type=UsesDependency
+dependency10.from=Cannon
+dependency10.to=Rock
+dependency10.type=UsesDependency
+dependency11.from=Player
+dependency11.to=Rock
+dependency11.type=UsesDependency
+dependency12.from=Player
+dependency12.to=Wall
+dependency12.type=UsesDependency
+dependency13.from=Player
+dependency13.to=Key
+dependency13.type=UsesDependency
+dependency14.from=Player
+dependency14.to=TestObstacle
+dependency14.type=UsesDependency
+dependency15.from=Rock
+dependency15.to=Player
+dependency15.type=UsesDependency
+dependency16.from=Rock
+dependency16.to=Wall
+dependency16.type=UsesDependency
+dependency17.from=Counter
+dependency17.to=Key
+dependency17.type=UsesDependency
+dependency18.from=Key
+dependency18.to=Player
+dependency18.type=UsesDependency
+dependency19.from=Bomb
+dependency19.to=Player
+dependency19.type=UsesDependency
+dependency2.from=MyWorld
+dependency2.to=Key
+dependency2.type=UsesDependency
+dependency3.from=MyWorld
+dependency3.to=Bomb
+>>>>>>> actor_dev
 dependency3.type=UsesDependency
 dependency4.from=MyWorld
 dependency4.to=Wall
 dependency4.type=UsesDependency
 dependency5.from=MyWorld
+<<<<<<< HEAD
 dependency5.to=Cannon
 dependency5.type=UsesDependency
 dependency6.from=Player
@@ -119,6 +162,30 @@ package.numDependencies=16
 package.numTargets=13
 >>>>>>> master
 project.charset=UTF-8
+=======
+dependency5.to=Rock
+dependency5.type=UsesDependency
+dependency6.from=MyWorld
+dependency6.to=Bullet
+dependency6.type=UsesDependency
+dependency7.from=MyWorld
+dependency7.to=Wall
+dependency7.type=UsesDependency
+dependency8.from=Bullet
+dependency8.to=Wall
+dependency8.type=UsesDependency
+dependency9.from=Cannon
+dependency9.to=Player
+dependency9.type=UsesDependency
+editor.fx.0.height=737
+editor.fx.0.width=814
+editor.fx.0.x=360
+editor.fx.0.y=28
+height=776
+package.numDependencies=19
+package.numTargets=13
+project.charset=windows-1252
+>>>>>>> actor_dev
 publish.hasSource=false
 publish.locked=true
 publish.longDesc=
@@ -131,7 +198,7 @@ readme.name=@README
 readme.width=47
 readme.x=10
 readme.y=10
-simulation.speed=43
+simulation.speed=50
 target1.height=50
 <<<<<<< HEAD
 target1.name=Player
@@ -140,7 +207,7 @@ target1.name=Bullet
 >>>>>>> master
 target1.showInterface=false
 target1.type=ClassTarget
-target1.width=90
+target1.width=80
 target1.x=0
 target1.y=0
 target10.height=50
@@ -163,10 +230,14 @@ target11.x=0
 target11.y=0
 target12.height=50
 <<<<<<< HEAD
+<<<<<<< HEAD
 target12.name=Bomb
 =======
 target12.name=key
 >>>>>>> master
+=======
+target12.name=Key
+>>>>>>> actor_dev
 target12.showInterface=false
 target12.type=ClassTarget
 target12.width=80
@@ -247,7 +318,7 @@ target7.name=Tile
 target6.name=TestPlayer
 target6.showInterface=false
 target6.type=ClassTarget
-target6.width=90
+target6.width=80
 target6.x=0
 target6.y=0
 target7.height=50
@@ -269,10 +340,11 @@ target9.height=50
 target9.name=TestObstacle
 target9.showInterface=false
 target9.type=ClassTarget
-target9.width=80
+target9.width=90
 target9.x=0
 target9.y=0
 version=3.0.0
+<<<<<<< HEAD
 <<<<<<< HEAD
 width=904
 world.lastInstantiated=MyWorld
@@ -289,3 +361,9 @@ xPosition=560
 yPosition=14
 >>>>>>> master
 >>>>>>> WorldDev
+=======
+width=794
+world.lastInstantiated=MyWorld
+xPosition=743
+yPosition=1
+>>>>>>> actor_dev

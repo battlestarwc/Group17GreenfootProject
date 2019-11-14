@@ -8,14 +8,23 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  */
 public class Bomb extends Actor
 {
-     
-    private int damage = 10; 
+    
+    private int damage = 3; 
     /**
      * 
      * 
      */
     public void act() 
     {
+
                 
-    }
+    
+ if (getOneIntersectingObject(Player.class)!=null)
+         {
+             getWorld().removeObject(this);       
+         }}
+         
+        
+        
+
 }

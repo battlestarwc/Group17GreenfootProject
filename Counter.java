@@ -23,7 +23,7 @@ public class Counter extends Actor
      */
     public void getCounter()
     {
-        score = key.keyNumber;
+        score = Key.keyNumber;
     }
 
 	public static int getScore() {

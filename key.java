@@ -6,14 +6,14 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  * @author (your name) 
  * @version (a version number or a date)
  */
-public class key extends Counter
+public class Key extends Counter
 {   
     public static int keyNumber = 0;
     /**
      * Act - do whatever the key wants to do. This method is called whenever
      * the 'Act' or 'Run' button gets pressed in the environment.
      */
-    public key() {
+    public Key() {
 		GreenfootImage k = new GreenfootImage("Key.png");
 		this.setImage(k);
 	}

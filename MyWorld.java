@@ -73,6 +73,7 @@ public class MyWorld extends World
         //addObject(new Rock(),200,500);
         addObject(new ScoreBoard(200, 50), 0,0);
         setPaintOrder(ScoreBoard.class, Player.class, key.class);
+
         prepare();
     }
     
@@ -94,69 +95,69 @@ public class MyWorld extends World
      */
     private void prepare()
     {
-	/*
-	int x;
-	int y;
-	x = -500;
-	y = -500;
-	while(y < 501) {
-		addObject(new Wall(), x, y);
-		y++;
-	}
-	while(x < 501) {
-		addObject(new Wall(), x, y);
-		x++;
-	}
-	while(y > -501) {
-		addObject(new Wall(), x, y);
-		y--;
-	}
-	while(x > -501) {
-		addObject(new Wall(), x, y);
-		x--;
-	}
-	*/
-	Vector<Integer> xes = new Vector<>();
-	Vector<Integer> yes = new Vector<>();
-	xes.add(200);
-	yes.add(500);
-	xes.add(-100);
-	yes.add(500);
-	xes.add(-400);
-	yes.add(500);
-	xes.add(-700);
-	yes.add(500);
-	xes.add(-700);
-	yes.add(300);
-	xes.add(-700);
-	yes.add(100);
-	xes.add(-700);
-	yes.add(200);
-	xes.add(-700);
-	yes.add(0);
-	xes.add(-700);
-	yes.add(-200);
-	xes.add(-400);
-	yes.add(-200);
-	xes.add(-100);
-	yes.add(-200);
-	xes.add(200);
-	yes.add(-200);
-	xes.add(500);
-	yes.add(-200);
-	xes.add(800);
-	yes.add(-200);
-	xes.add(800);
-	yes.add(0);
-	xes.add(800);
-	yes.add(200);
-	xes.add(800);
-	yes.add(400);
-    	Iterator<Integer> x = xes.iterator();
-	Iterator<Integer> y = yes.iterator();
-	while(x.hasNext() && y.hasNext()) {
-		addObject(new Wall(), x.next(), y.next());
-	}
-	addObject(new Cannon(), 300, 300);
-	}
+        /*
+        int x;
+        int y;
+        x = -500;
+        y = -500;
+        while(y < 501) {
+        addObject(new Wall(), x, y);
+        y++;
+        }
+        while(x < 501) {
+        addObject(new Wall(), x, y);
+        x++;
+        }
+        while(y > -501) {
+        addObject(new Wall(), x, y);
+        y--;
+        }
+        while(x > -501) {
+        addObject(new Wall(), x, y);
+        x--;
+        }
+         */
+        Vector<Integer> xes = new Vector<>();
+        Vector<Integer> yes = new Vector<>();
+        xes.add(200);
+        yes.add(500);
+        xes.add(-100);
+        yes.add(500);
+        xes.add(-400);
+        yes.add(500);
+        xes.add(-700);
+        yes.add(500);
+        xes.add(-700);
+        yes.add(300);
+        xes.add(-700);
+        yes.add(100);
+        xes.add(-700);
+        yes.add(200);
+        xes.add(-700);
+        yes.add(0);
+        xes.add(-700);
+        yes.add(-200);
+        xes.add(-400);
+        yes.add(-200);
+        xes.add(-100);
+        yes.add(-200);
+        xes.add(200);
+        yes.add(-200);
+        xes.add(500);
+        yes.add(-200);
+        xes.add(800);
+        yes.add(-200);
+        xes.add(800);
+        yes.add(0);
+        xes.add(800);
+        yes.add(200);
+        xes.add(800);
+        yes.add(400);
+        Iterator<Integer> x = xes.iterator();
+        Iterator<Integer> y = yes.iterator();
+        while(x.hasNext() && y.hasNext()) {
+            addObject(new Wall(), x.next(), y.next());
+        }
+        addObject(new Cannon(), 300, 300);
+    }
 }

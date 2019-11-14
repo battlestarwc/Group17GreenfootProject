@@ -11,10 +11,14 @@ comment1.text=\r\n\ The\ rock\ will\ hurt\ the\ player\ if\ the\ player\ gets\ h
 comment2.params=
 comment2.target=void\ act()
 comment3.params=
+<<<<<<< HEAD
 comment3.target=void\ checkBoundaries()
 <<<<<<< HEAD
 comment3.text=\n\ \n
 =======
+=======
+comment3.target=void\ lookForWall()
+>>>>>>> actor_dev
 comment3.text=\r\n\ \r\n
 <<<<<<< HEAD
 comment4.params=

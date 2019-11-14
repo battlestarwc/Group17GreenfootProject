@@ -16,7 +16,9 @@ public class Player extends Actor
     private int coins;
     private int speed;
     private int visionRange;
-    private int life;
+    private int life=15;
+    private int damage; 
+    
     public Player() {
             coins = 0;
             speed = 5;
@@ -91,7 +93,7 @@ public class Player extends Actor
     
     public int getKeys() //can change to whatever the objective is
     {
-        return key.keyNumber;
+        return Key.keyNumber;
         
     }
     
@@ -133,4 +135,7 @@ public class Player extends Actor
         }
         return 0;
     }
+    
+    
+
 }
