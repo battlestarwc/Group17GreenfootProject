@@ -20,7 +20,7 @@ public class Key extends Counter
 
     public void act() 
     {
-        setLocation(300,100);
+      
         GreenfootImage key = new GreenfootImage("Key.png");
         getKey();// A// Add your action code here.
     }    

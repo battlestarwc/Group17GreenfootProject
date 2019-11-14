@@ -9,7 +9,7 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 public class Rock extends Actor
 {
     private int life=15; 
-    public static final int damage=1;
+    public static final int damage=3;
     private boolean targetSet = false;
     private GreenfootImage rock = new GreenfootImage("Rock.png");
     private int speed=5; 
@@ -40,7 +40,10 @@ public class Rock extends Actor
 	}
          Player player = (Player) getOneIntersectingObject(Player.class);
      if(player != null){
-         Greenfoot.stop();
+         
+         //this is causing greenfoot to stop whenever the rock hits the player when 
+         //player is standing still or moving up and down, dont know how to fix
+       //  Greenfoot.stop();
          lookForWall();
     } 
     }

@@ -29,7 +29,7 @@ public class ScoreBoard extends Actor
     // The background colors:
     private static final Color BACKGROUND_COLOR = new Color(0xFF, 0xFF, 0xFF, 0xB0);
     private static final Color BACKGROUND_HIGHLIGHT_COLOR = new Color(180, 230, 255, 0xB0);
-    private int tempLives = 30;
+    private int tempHealth = 30;
     private int tempKeys = 0;
     /**
      * Constructor for objects of class ScoreBoard.
@@ -42,10 +42,13 @@ public class ScoreBoard extends Actor
         setImage(new GreenfootImage(width, height)); 
         getImage().setColor(BACKGROUND_COLOR);
         getImage().fill();
-        
-        drawString("Lives:   30", 5,5 , MAIN_COLOR, HEADER_TEXT_HEIGHT);
-        drawString("Keys:    0", 5,25, MAIN_COLOR, HEADER_TEXT_HEIGHT);
-        
+        getImage().fillRect(72,3,25, 23);
+        getImage().fillRect(72,28,25, 23);
+        drawString("Health: ", 5,5 , MAIN_COLOR, HEADER_TEXT_HEIGHT);
+        drawString("30", 75, 5, MAIN_COLOR,HEADER_TEXT_HEIGHT);
+        drawString("Keys: ", 5,25, MAIN_COLOR, HEADER_TEXT_HEIGHT);
+                drawString("0", 75, 25, MAIN_COLOR,HEADER_TEXT_HEIGHT);
+
 
     }
     
@@ -65,18 +68,15 @@ public class ScoreBoard extends Actor
         this.setLocation(550,570);
         List<Player> test = getWorld().getObjects(Player.class);
         getImage().setColor(BACKGROUND_COLOR);
-        if (test.get(0).getLives() != tempLives) {
+        if (test.get(0).getHealth() != tempHealth || test.get(0).getKeys()!= tempKeys) {
             
-            getImage().fillRect(75,3,25, 23);
-            drawString(Integer.toString(test.get(0).getLives()), 75, 5, MAIN_COLOR, HEADER_TEXT_HEIGHT);
-            
-            
-        }
-        if (test.get(0).getKeys()!= tempKeys) {
-            getImage().fillRect(75,28,25, 23);
-            drawString(Integer.toString(test.get(0).getKeys()), 75, 25, MAIN_COLOR, HEADER_TEXT_HEIGHT);
+            getImage().fillRect(72,3,25, 23);
+            drawString(Integer.toString(test.get(0).getHealth()), 75, 5, MAIN_COLOR, HEADER_TEXT_HEIGHT);
+            getImage().fillRect(72,28,25, 23);
+            drawString(Integer.toString(test.get(0).getKeys()), 75, 25, MAIN_COLOR,HEADER_TEXT_HEIGHT);
             
         }
+       
         
     }
    
