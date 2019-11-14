@@ -6,7 +6,7 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  * @author (your name) 
  * @version (a version number or a date)
  */
-public class Bullet extends SmoothMover
+public class Bullet extends Actor
 {
     /**
      * Act - do whatever the Bullet wants to do. This method is called whenever
@@ -16,27 +16,22 @@ public class Bullet extends SmoothMover
     private int life = 15; 
     private int damage = 1; 
     
-    public Bullet()
+    public void act()
+    
+    
     {
         
-       
-    }
-    
-    public void act() 
-    
-    {
-       
-       move(2);
-     
+        
+        lookForWall();
+        move(-5);
     }    
-    /**
-     * 
-     */
     public void lookForWall()
-     {
+    {
         if (isTouching(Wall.class))
         {
-            getWorld().removeObject(this);
+            removeTouching(Wall.class);
         }
+        
     }
+   
 }

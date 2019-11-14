@@ -36,10 +36,18 @@ public class Cannon extends Actor
     public void act() 
     {
          turnAtEdge();
-         
-      
-		
-         
+         	
+     try { 
+        Player player = (Player)getWorld().getObjects(Player.class).get(0);
+        turnTowards(player.getX(),player.getY());
+	if ( Math.sqrt( Math.pow(this.getX() - player.getX(), 2) + Math.pow(this.getY() - player.getY(), 2) ) < 200) { 
+		turnTowards(player.getX(),player.getY());
+		if (r.nextInt() % 60 == 42) {
+			this.fire();
+		}
+		} } catch	 (Exception e) {
+			System.out.println(e);
+		}    
 		
 	
     }
