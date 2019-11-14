@@ -67,7 +67,8 @@ public class Cannon extends Actor
      */
     public void fire ()
     {
-        
+                Greenfoot.playSound("Damage.wav");
+
         Rock rock= new Rock();
         getWorld().addObject(rock,getX(),getY());
         
