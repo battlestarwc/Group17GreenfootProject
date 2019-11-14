@@ -51,12 +51,18 @@ public class Player extends Actor
         getWorld().removeObject(rock);
     }       
 
+<<<<<<< HEAD
     if(this.life <= 0) {
         //this.getWorld().removeObject(this);
         endScreen();
         Greenfoot.stop();
         
     }
+=======
+	if(this.life <= 0) {
+		Greenfoot.stop();
+	}
+>>>>>>> WorldDev
         
      
     } 
