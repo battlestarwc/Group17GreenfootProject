@@ -20,17 +20,9 @@ public class key extends Counter
 
     public void act() 
     {
-<<<<<<< HEAD
         setLocation(300,100);
         GreenfootImage key = new GreenfootImage("Key.png");
         getKey();// A// Add your action code here.
-=======
-	//no, this cant be here
-        //setLocation(300,100);
-	//this should be in constructor 
-        //GreenfootImage key = new GreenfootImage("Key.png");
-        getKey();// Why is this here and why is it done like this, but it works so I guess its ok
->>>>>>> master
     }    
     /**
      * get a key means you can open a box.

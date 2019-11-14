@@ -16,12 +16,6 @@ public class Bomb extends Actor
      */
     public void act() 
     {
-        
-        
-<<<<<<< HEAD
-=======
-        
->>>>>>> master
-        
-}
+                
+    }
 }
