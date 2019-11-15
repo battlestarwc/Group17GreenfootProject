@@ -93,5 +93,9 @@ public class Maze implements Runnable {
 		System.out.println();
 	}
 
+	public void run() {
+		this.generateMaze();
+	}
+
 
 }
