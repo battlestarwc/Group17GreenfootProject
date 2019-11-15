@@ -3,92 +3,95 @@ import java.util.*;
 
 public class Maze implements Runnable {
 
-    private final World world;
-    private final int xSize;
-    private final int ySize;
-    private final Random r;
-    private HashSet<Actor> visited;
 
-    public Maze(World w, int x, int y) {
-        this.world = w;
-        this.xSize = x;
-        this.ySize = y;
-        this.visited = new HashSet<>();
-        this.r = new Random();
-    }
+	protected final int maxX;
+	protected final int maxY;
+	protected final boolean[][] maze;
+	private final World world;
 
-    private void setup() {
-        //30 is arbitrary tile size
-        for(int x = -this.xSize; x <= this.xSize; x += 30) {
-            for(int y = -this.ySize; y <= this.ySize; y += 30) {
-                //This is the arbitrary player start box
-                //3 tiles by 3 tiles at center, adjust as needed
-                if(x > 0 - (30 * 3) && x < 0 + (30 * 3)) {
-                    continue;
-                }
-                this.world.addObject(new Tile(), x, y);
-            }
-        }
-    }
+	public Maze(int x, int y, World w) {
+		this.maxX = x;
+		this.maxY = y;
+		this.maze = new boolean[this.maxX * 2][this.maxY * 2];
+		this.world = w;
+	}
 
-    //recurse
-    //check for 1 (10%) 2 (70%) or 3 (20%) null neighbors
-    //if not the right number of neighbors, create new nulls
-    //NEVER touch the lastTile
-    private void algo(Actor lastTile, Actor targetTile) {
-        if(this.visited.contains(targetTile)) {
-            return;
-        }
-        this.visited.add(targetTile);
+	private void generateMaze() {
+		//Draw the external edges
+		for(int x = 0; x < this.maxX * 2; x++) {
+			this.maze[x][0] = true;
+			this.maze[x][(this.maxY * 2) -1] = true;
+		}
+		for(int y = 0; y < this.maxY * 2; y++) {
+			this.maze[0][y] = true;
+			this.maze[(this.maxX * 2) -1][y] = true;
+		}
+		
+		//generate the maze
+		//start at graph 0
+		int x = this.maxX;
+		int y = this.maxY;
 
-        //get neigbors
-        List<Tile> neighbors = ((Tile)targetTile).nei();
-        if(neighbors.isEmpty()) {
-            return;
-        }
-        //select how many neighbors to have
-        int howMany = r.nextInt() % 10;
-        switch(howMany) {
-            case 0:
-                howMany = 1;
-                break;
-            //Hacky way of waterfalling switches
-            case 1:
-            case 2:
-            case 3:
-                howMany = 3;
-                break;
-            default:
-                howMany = 2;
-        }
-        
+		//randomly order the directions to go in
+		Direction[] directions = Direction.getDirectionSet();
+		Collections.shuffle(Arrays.asList(directions));
 
-        //Edit neighbors
-        int cnt = 0;
-        while(cnt < howMany) {
-            for(Tile a : neighbors) {
-                if(cnt < howMany && a != lastTile && !this.visited.contains(a)) {
-                    if(this.r.nextInt() % 5 == 2) {
-                        a.setWall(false);
-                    }
-                }
-            }
-        }
+		//for every direction
+		for (Direction dir : directions) {
+			int nextX = x + dir.getX();
+			int nextY = y + dir.getY();
+			//bounds check
+			boolean xBound = nextX < (this.maxX * 2) && nextX > 0;
+			boolean yBound = nextY < (this.maxY * 2) && nextY > 0;
+			boolean wallBound = !this.maze[nextX][nextY];
+			if(wallBound && xBound && yBound) {
+				
+				//set wall before and after
+				this.maze[nextX][nextY] = true;
+				this.maze[x - dir.getX()][y - dir.getY()] = true;
+				this.generateMaze(nextX, nextY);
 
-        //return case
-        if(howMany > 1) {
-            for(Tile a : neighbors) {
-                if (a != lastTile && a.isWall() == false) {
-                    this.algo(targetTile, a);
-                }
-            }
-        }
-        
-    }
+			}
+		} 
 
-    public void run() {
-        this.setup();
-    }
+
+
+	}
+
+
+	private void generateMaze(int x, int y) {
+		//randomly order the directions to go in                                              
+                Direction[] directions = Direction.getDirectionSet();                                 
+                Collections.shuffle(Arrays.asList(directions));                                       
+                        
+                //for every direction
+                for (Direction dir : directions) {
+                        int nextX = x + dir.getX();                                                   
+                        int nextY = y + dir.getY();                                                   
+                        //bounds check                                                                
+                        boolean xBound = nextX < (this.maxX * 2) && nextX > 0;                        
+                        boolean yBound = nextY < (this.maxY * 2) && nextY > 0;                        
+                        boolean wallBound = !this.maze[nextX][nextY];                                 
+                        if(wallBound && xBound && yBound) {                                           
+                                
+                                //set wall before and after                                           
+                                this.maze[nextX][nextY] = true;                                       
+                                this.maze[x - dir.getX()][y - dir.getY()] = true;                     
+                                this.generateMaze(nextX, nextY);                                      
+                                
+                        }
+                }         
+	}
+
+	private void prettyPrint() {
+		for(int y = 0; y < this.maxY * 2; y++) {
+			System.out.println();
+			for(int x = 0; x < this.maxX * 2; x++) {
+				System.out.print( (this.maze[x][y] ) ? "X" : "O");
+			}
+		}
+		System.out.println();
+	}
 
 
 }
