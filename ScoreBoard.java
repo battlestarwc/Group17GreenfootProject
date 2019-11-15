@@ -23,11 +23,11 @@ public class ScoreBoard extends Actor
     // The height of the "All Players"/"Near Me" text at the top:
     private static final int HEADER_TEXT_HEIGHT = 25;
     // The main text color:
-    private static final Color MAIN_COLOR = new Color(0x60, 0x60, 0x60); // dark grey
+    private static final Color MAIN_COLOR = new Color(255,0,0); // dark grey
     // The score color:
     private static final Color SCORE_COLOR = new Color(0xB0, 0x40, 0x40); // orange-y
     // The background colors:
-    private static final Color BACKGROUND_COLOR = new Color(0xFF, 0xFF, 0xFF, 0xB0);
+    private static final Color BACKGROUND_COLOR = new Color(0, 0, 0);
     private static final Color BACKGROUND_HIGHLIGHT_COLOR = new Color(180, 230, 255, 0xB0);
     private int tempHealth = 30;
     private int tempKeys = 0;
@@ -65,7 +65,7 @@ public class ScoreBoard extends Actor
     
     
     public void act() {
-        this.setLocation(550,570);
+        this.setLocation(550,575);
         List<Player> test = getWorld().getObjects(Player.class);
         getImage().setColor(BACKGROUND_COLOR);
         if (test.get(0).getHealth() != tempHealth || test.get(0).getKeys()!= tempKeys) {
