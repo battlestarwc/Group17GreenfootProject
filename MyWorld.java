@@ -61,7 +61,7 @@ public class MyWorld extends World
     {    
         // Create a new world with 600x400 cells with a cell size of 1x1 pixels.
         super(600, 600, 1, false);
-        Maze a = new Maze(this, 600,600);
+        Maze a = new Maze(256);
         a.run();
         GreenfootImage background = getBackground();
         background.setColor(new Color(80,80,80)); 
@@ -74,8 +74,9 @@ public class MyWorld extends World
         addObject(new ScoreBoard(200, 50), 0,0);
         addObject(new Time(), 0,0);
         setPaintOrder(Time.class, ScoreBoard.class, Player.class, Key.class);
-
-        prepare();
+      
+        while (! a.isDone()){}
+        Iterator mazeItr = a.getMaze().iterator();
     }
     
     /**
