@@ -1,0 +1,13 @@
+#BlueJ class context
+comment0.target=Cell
+comment1.params=xCord\ yCord\ w
+comment1.target=Cell(int,\ int,\ boolean)
+comment2.params=
+comment2.target=int\ getX()
+comment3.params=
+comment3.target=int\ getY()
+comment4.params=
+comment4.target=void\ changeWall()
+comment5.params=
+comment5.target=boolean\ isWall()
+numComments=6
