@@ -1,18 +1,17 @@
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.List;
-import java.util.Random;
+import java.util.*;
 import java.util.concurrent.LinkedBlockingQueue;
 
 public class Maze implements Runnable {
 
     private final int size;
     private Cell[][] maze;
+    private boolean done;
 
     public Maze(int size) {
         //requires a square size
         this.size = size;
         this.maze = new Cell[size][size];
+        this.done = false;
     }
 
     private void loadInitial() {
@@ -181,6 +180,20 @@ public class Maze implements Runnable {
             }
         }
         System.out.println();
+    }
+
+    public boolean isDone() {
+        return this.done;
+    }
+
+    public Vector<Cell> getMaze() {
+        Vector<Cell> output = new Vector<>();
+        for(int x = 0; x < this.size; x++) {
+            for (int y = 0; y < this.size; y++) {
+                output.add(this.maze[x][y]);
+            }
+        }
+        return output;
     }
 
 
