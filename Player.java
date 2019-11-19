@@ -21,6 +21,9 @@ public class Player extends Actor
 
         speed = 5;
         this.health = 30;
+        GreenfootImage playerBeautifulFace = new GreenfootImage("images/playerPic1.png");
+        playerBeautifulFace.scale(40,50); //squash
+        this.setImage(playerBeautifulFace);
     }
     
     public void act() 

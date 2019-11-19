@@ -74,9 +74,9 @@ public class MyWorld extends World
         background.fill();
         //Test scrolling
         addObject(new Player(), 0,0);
-    addObject(new Key(), 300, 300);  
-        addObject(new Cannon(),200,500);
-        addObject(new Rock(),200,500);
+    //addObject(new Key(), 300, 300);  
+        //addObject(new Cannon(),200,500);
+        //addObject(new Rock(),200,500);
         addObject(new ScoreBoard(200, 50), 0,0);
         addObject(new Time(), 0,0);
         setPaintOrder(Time.class, ScoreBoard.class,Shade.class,Player.class, Key.class);
@@ -88,7 +88,7 @@ public class MyWorld extends World
  
         while(cannonItr.hasNext()) {
             Cell c = (Cell) cannonItr.next();
-            if(c.isWall()){
+            if(c.isWall() || ((c.getX() < 2 && c.getX() > -2)&&(c.getY() < 2 && c.getY() >-2))){
                 continue;
             }
             arr.add(c);
