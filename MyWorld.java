@@ -72,11 +72,10 @@ public class MyWorld extends World
         addObject(new Cannon(),200,500);
         addObject(new Rock(),200,500);
         addObject(new ScoreBoard(200, 50), 0,0);
-        addObject(new Time(), 0,0);
+        //addObject(new Time(), 0,0);
         setPaintOrder(Time.class, ScoreBoard.class, Player.class, Key.class);
-      
-        while (! a.isDone()){}
         Iterator mazeItr = a.getMaze().iterator();
+        MazeGeneratorInterface inf = new MazeGeneratorInterface(this, mazeItr);
     }
     
     /**

@@ -27,10 +27,10 @@ public class Player extends Actor
     {
         wallCollision();
         if(this.health <= 0) {
-	    endScreen();
-		Greenfoot.stop();
-		
-	}
+        endScreen();
+        Greenfoot.stop();
+        
+    }
         if(Greenfoot.isKeyDown("Up") && this.getY() > -1500 && this.getY() < 1500) {
                 setRotation(270);
                 keysPressed();
@@ -55,7 +55,12 @@ public class Player extends Actor
         getWorld().removeObject(rock);
     }       
 
-	
+    if(isTouching(Bomb.class))
+    {
+        this.health -= Bomb.damage;
+        Actor bomb = getOneIntersectingObject(Bomb.class); 
+        getWorld().removeObject(bomb);
+    }
         
      
     } 
@@ -102,17 +107,29 @@ public class Player extends Actor
         return health;
     }
     public void keysPressed() {
-        
-        if (wallCollision() == 1) {
-         Actor test = getOneObjectAtOffset(offsetX(this.getRotation()), offsetY(this.getRotation()), TestObstacle.class);
-            if (test == null) {
-            move(speed);
-           
-    }
-    }
-    if(wallCollision() != 1) {
-        move(-speed);
-    } 
+        int targetX, targetY;
+        targetX = this.getX();
+        targetY = this.getY();
+        switch(this.getRotation()) {
+            //Right, + delta X
+            case 0:
+                targetX += this.speed;
+                break;
+            //Down, + delta Y
+            case 90:
+                targetY += this.speed;
+                break;
+            //Left, - delta x
+            case 180:
+                targetX -= this.speed;
+                break;
+            //Up, - delta y
+            default:
+                targetX -= this.speed;
+        }
+        if(this.getWorld().getObjectsAt(targetX,targetY,Wall.class).size() > 0) {
+            this.move(speed);
+        }
     }
     
     

@@ -43,6 +43,12 @@ public class MazeGeneratorInterface
             }
             Cell c = (Cell) o;
             
+            //The way to read this:
+            //if NOT c is a wall (such that c.isWall() == True -> False)
+            //then continue (which causes the parent while loop to rerun)
+            if (!c.isWall()) {
+                continue;
+            }
             int x = c.getX();
             int y = c.getY();
             
@@ -50,8 +56,26 @@ public class MazeGeneratorInterface
             //Center is 127,127 for maze and 300,300 for greenfoot
             //Lets assume that a Wall is 50 by 50 
             //So maze 126,126 would map to 250,250 for greenfoot
-            
-            
+            int deltaX = Math.abs(x - 127) * 50;
+            if(x < 127) {
+                deltaX *= -1;
+                //is the same as deltaX = deltaX * -1;
+            }
+            x += deltaX;
+            /*
+             * This is the same as 
+             * int deltaX = (x - 127) * 50;
+             * Which is also the same as 
+             * x += (x - 127) * 50;
+             * Which is also the same as
+             * x += (x - 127 >= 0) ? -50 * Math.abs(x - 127) : 50 * Math.abs(x - 127);
+             */
+             int deltaY = Math.abs(y -127) * 50; 
+             if (y < 127)
+             {
+                 deltaY *= -1;
+             }
+             y += deltaY;
             this.thisWorld.addObject(new Wall(), x, y);
 
         }

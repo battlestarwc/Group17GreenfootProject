@@ -90,6 +90,7 @@ public class Maze implements Runnable {
 
             List<Cell> shuffleQueue = new ArrayList<>(wallQueue);
             Collections.shuffle(shuffleQueue);
+            wallQueue = new LinkedBlockingQueue<>(shuffleQueue);
 
             int count = 0; //count the number of connected
 

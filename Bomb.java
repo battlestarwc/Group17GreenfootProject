@@ -9,7 +9,7 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 public class Bomb extends Actor
 {
     
-    private int damage = 3; 
+    public static final int damage = 3; 
     /**
      * 
      * 

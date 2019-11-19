@@ -71,7 +71,7 @@ public class Cannon extends Actor
 
         Rock rock= new Rock();
         getWorld().addObject(rock,getX(),getY());
-        
+        rock.setRotation(getRotation());
         }
     }
 
