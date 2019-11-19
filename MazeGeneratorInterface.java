@@ -61,7 +61,7 @@ public class MazeGeneratorInterface
                 deltaX *= -1;
                 //is the same as deltaX = deltaX * -1;
             }
-            x += deltaX;
+            x = deltaX;
             /*
              * This is the same as 
              * int deltaX = (x - 127) * 50;
@@ -75,7 +75,10 @@ public class MazeGeneratorInterface
              {
                  deltaY *= -1;
              }
-             y += deltaY;
+             y = deltaY;
+             if((x > -25 && x < 25) || (y > -25 && y < 25)) {
+                 continue;
+                }
             this.thisWorld.addObject(new Wall(), x, y);
 
         }

@@ -14,6 +14,8 @@ public class MyWorld extends World
     private int screenSizeY = 600;
     private int playerTargetX = screenSizeX / 2;
     private int playerTargetY = screenSizeY / 2;
+    private int maxCannons = 25;
+    private int maxKeys = 10;
 
     private void scroll() {
         Actor player = null;
@@ -43,8 +45,8 @@ public class MyWorld extends World
         //move
         for (Actor a : super.getObjects(Actor.class)) {
             if(a instanceof Shade) {
-			continue;
-		}
+            continue;
+        }
             int newX = a.getX() + deltaX;
             int newY = a.getY() + deltaY;
             a.setLocation(newX, newY);
@@ -64,6 +66,7 @@ public class MyWorld extends World
     {    
         // Create a new world with 600x400 cells with a cell size of 1x1 pixels.
         super(600, 600, 1, false);
+        addObject(new Shade(),300,300);
         Maze a = new Maze(256);
         a.run();
         GreenfootImage background = getBackground();
@@ -71,14 +74,44 @@ public class MyWorld extends World
         background.fill();
         //Test scrolling
         addObject(new Player(), 0,0);
-	addObject(new Key(), 300, 300);  
+    addObject(new Key(), 300, 300);  
         addObject(new Cannon(),200,500);
         addObject(new Rock(),200,500);
         addObject(new ScoreBoard(200, 50), 0,0);
-        //addObject(new Time(), 0,0);
-        setPaintOrder(Time.class, ScoreBoard.class, Player.class, Key.class);
+        addObject(new Time(), 0,0);
+        setPaintOrder(Time.class, ScoreBoard.class,Shade.class,Player.class, Key.class);
         Iterator mazeItr = a.getMaze().iterator();
         MazeGeneratorInterface inf = new MazeGeneratorInterface(this, mazeItr);
+        Random r = new Random();
+        Iterator cannonItr = a.getMaze().iterator();
+        ArrayList<Cell> arr = new ArrayList<>();
+ 
+        while(cannonItr.hasNext()) {
+            Cell c = (Cell) cannonItr.next();
+            if(c.isWall()){
+                continue;
+            }
+            arr.add(c);
+        }
+        //Collections.shuffle(arr);
+        while(this.maxKeys > 0 && arr.size() > 5) {
+            int index = Math.abs(r.nextInt() % arr.size());
+            Cell c = arr.get(index);
+            arr.remove(index);
+            int x = (50*(c.getX()-127));
+            int y = (50*(c.getX()-127));
+            addObject(new Key(), x, y);
+            this.maxKeys--;
+        }
+        while(this.maxCannons > 0 && arr.size() > 5) {
+            int index = Math.abs(r.nextInt() % arr.size());
+            Cell c = arr.get(index);
+            arr.remove(index);
+            int x = (50*(c.getX()-127));
+            int y = (50*(c.getX()-127));
+            addObject(new Cannon(), x, y);
+            this.maxCannons--;
+        }
     }
     
     /**

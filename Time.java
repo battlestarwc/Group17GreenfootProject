@@ -19,8 +19,8 @@ public class Time extends Actor
     public int minutes;
     public int seconds;
     public Time() {
-        minutes = 0;
-        seconds = 5;
+        minutes = 2;
+        seconds = 0;
         setImage(new GreenfootImage(200, 75)); 
         getImage().setColor(BACKGROUND_COLOR);
         getImage().fill();
@@ -48,8 +48,8 @@ public class Time extends Actor
         
         List<ScoreBoard> scoreboard = getWorld().getObjects(ScoreBoard.class);
         getWorld().removeObject(scoreboard.get(0));
-        List<Time> timeboard = getWorld().getObjects(Time.class);
-        getWorld().removeObject(timeboard.get(0));
+        //List<Time> timeboard = getWorld().getObjects(Time.class);
+        //getWorld().removeObject(timeboard.get(0));
         ScoreBoard screen = new ScoreBoard(400, 400);
         List<Player> getPlayerPosition = getWorld().getObjects(Player.class);
         

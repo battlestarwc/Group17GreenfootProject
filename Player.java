@@ -31,19 +31,19 @@ public class Player extends Actor
         Greenfoot.stop();
         
     }
-        if(Greenfoot.isKeyDown("Up") && this.getY() > -1500 && this.getY() < 1500) {
+        if(Greenfoot.isKeyDown("Up") ) {
                 setRotation(270);
                 keysPressed();
             }
-             else if(Greenfoot.isKeyDown("Right") && this.getX() > -1500 && this.getX() < 1500) {
+             else if(Greenfoot.isKeyDown("Right") ) {
                     setRotation(0);
                     keysPressed();
             }
-             else if(Greenfoot.isKeyDown("Down") && this.getY() > -1500 && this.getY() < 1500) {
+             else if(Greenfoot.isKeyDown("Down") ) {
                     setRotation(90);
                     keysPressed();
             }
-             else if(Greenfoot.isKeyDown("Left") && this.getX() > -1500 && this.getX() < 1500) {
+             else if(Greenfoot.isKeyDown("Left")) {
                     setRotation(180);
                     keysPressed();
             }
@@ -127,7 +127,7 @@ public class Player extends Actor
             default:
                 targetX -= this.speed;
         }
-        if(this.getWorld().getObjectsAt(targetX,targetY,Wall.class).size() > 0) {
+        if(this.getWorld().getObjectsAt(targetX,targetY,Wall.class).size() <= 0) {
             this.move(speed);
         }
     }
