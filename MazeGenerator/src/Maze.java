@@ -90,6 +90,7 @@ public class Maze implements Runnable {
 
             List<Cell> shuffleQueue = new ArrayList<>(wallQueue);
             Collections.shuffle(shuffleQueue);
+            wallQueue = new LinkedBlockingQueue<>(shuffleQueue);
 
             int count = 0; //count the number of connected
 
@@ -175,7 +176,7 @@ public class Maze implements Runnable {
                 if(x == this.size / 2 && y == this.size / 2) {
                     System.out.print("+");
                 } else {
-                    System.out.print((this.maze[x][y].isWall()) ? "X" : "O");
+                    System.out.print((this.maze[x][y].isWall()) ? "X" : " ");
                 }
             }
         }

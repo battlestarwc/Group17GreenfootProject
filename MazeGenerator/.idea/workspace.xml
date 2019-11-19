@@ -2,9 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="f81f176d-bc87-4e9e-b625-e995933ce08d" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/codeStyles/codeStyleConfig.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MazeGenerator/Maze.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/MazeGenerator/Maze.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Maze.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Maze.java" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -81,7 +80,8 @@
       <option name="presentableId" value="Default" />
       <updated>1573908122870</updated>
       <workItem from="1573908124662" duration="4721000" />
-      <workItem from="1574026885074" duration="182000" />
+      <workItem from="1574026885074" duration="2905000" />
+      <workItem from="1574176232914" duration="14000" />
     </task>
     <servers />
   </component>
@@ -93,7 +93,9 @@
       <map>
         <entry key="MAIN">
           <value>
-            <State />
+            <State>
+              <option name="COLUMN_ORDER" />
+            </State>
           </value>
         </entry>
       </map>
