@@ -42,6 +42,9 @@ public class MyWorld extends World
 
         //move
         for (Actor a : super.getObjects(Actor.class)) {
+            if(a instanceof Shade) {
+			continue;
+		}
             int newX = a.getX() + deltaX;
             int newY = a.getY() + deltaY;
             a.setLocation(newX, newY);
