@@ -16,7 +16,7 @@ public class Counter extends Actor
     public void act() 
     {
         //setImage(new GreenfootImage("score :" + score,100, Color.GREEN,new Color(0,0,0)));
-        getCounter();// Add your action code here.
+        //getCounter();// Add your action code here.
     }  
     /**
      * addScore if ball get fire, score will increase.

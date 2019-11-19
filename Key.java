@@ -21,8 +21,6 @@ public class Key extends Counter
 
     public void act() 
     {
-
-        GreenfootImage key = new GreenfootImage("Key.png");
         getKey();// A// Add your action code here.
     }    
     /**
@@ -31,7 +29,6 @@ public class Key extends Counter
      */
     public void getKey() {
         if(isTouching(Player.class)) {
-            Actor actor = getOneIntersectingObject(Player.class);
             getWorld().removeObject(this);
             keyNumber++;
         }
