@@ -40,9 +40,9 @@ public class Cannon extends Actor
      try { 
         Player player = (Player)getWorld().getObjects(Player.class).get(0);
         turnTowards(player.getX(),player.getY());
-	if ( Math.sqrt( Math.pow(this.getX() - player.getX(), 2) + Math.pow(this.getY() - player.getY(), 2) ) < 200) { 
+	if ( Math.sqrt( Math.pow(this.getX() - player.getX(), 2) + Math.pow(this.getY() - player.getY(), 2) ) < 500) { 
 		turnTowards(player.getX(),player.getY());
-		if (r.nextInt() % 60 == 42) {
+		if (r.nextInt() % 50 == 42) {
 			this.fire();
 		}
 		} } catch	 (Exception e) {
