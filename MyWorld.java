@@ -84,8 +84,7 @@ public class MyWorld extends World
         MazeGeneratorInterface inf = new MazeGeneratorInterface(this, mazeItr);
         Random r = new Random();
         Iterator cannonItr = a.getMaze().iterator();
-        ArrayList<Cell> arr = new ArrayList<>();
- 
+	PriorityQueue<Cell> arr = new PriorityQueue<>(); 
         while(cannonItr.hasNext()) {
             Cell c = (Cell) cannonItr.next();
             if(c.isWall() || ((c.getX() < 2 && c.getX() > -2)&&(c.getY() < 2 && c.getY() >-2))){
@@ -95,18 +94,20 @@ public class MyWorld extends World
         }
         //Collections.shuffle(arr);
         while(this.maxKeys > 0 && arr.size() > 5) {
-            int index = Math.abs(r.nextInt() % arr.size());
-            Cell c = arr.get(index);
-            arr.remove(index);
+            Cell c = arr.poll();
+	    if(r.nextInt() % 100 > 100 * (arr.size() / Math.pow((this.maxKeys + this.maxCannons), 2)) {
+			continue;
+		} 
             int x = (50*(c.getX()-127));
             int y = (50*(c.getX()-127));
             addObject(new Key(), x, y);
             this.maxKeys--;
         }
         while(this.maxCannons > 0 && arr.size() > 5) {
-            int index = Math.abs(r.nextInt() % arr.size());
-            Cell c = arr.get(index);
-            arr.remove(index);
+		Cell c = arr.poll();
+            if(r.nextInt() % 100 > 100 * (arr.size() / Math.pow((this.maxKeys + this.maxCannons), 2)) {
+                        continue;
+                }
             int x = (50*(c.getX()-127));
             int y = (50*(c.getX()-127));
             addObject(new Cannon(), x, y);
