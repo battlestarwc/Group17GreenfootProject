@@ -14,8 +14,9 @@ public class MyWorld extends World
     private int screenSizeY = 600;
     private int playerTargetX = screenSizeX / 2;
     private int playerTargetY = screenSizeY / 2;
-    private int maxCannons = 128;
+    private int maxCannons = 32;
     private int maxKeys = 64;
+    private int maxBombs = 10;
 
     private void scroll() {
         Actor player = null;
@@ -103,15 +104,20 @@ public class MyWorld extends World
             addObject(new Key(), x, y);
             this.maxKeys--;
         }
-        while(this.maxCannons > 0 && arr.size() > 5) {
+        while(this.maxCannons + this.maxBombs > 0 && arr.size() > 5) {
 		Cell c = arr.poll();
             if(r.nextInt() % 100 > 100 * (arr.size() / Math.pow((this.maxKeys + this.maxCannons), 2))) {
                         continue;
                 }
             int x = (50*(c.getX()-127));
             int y = (50*(c.getX()-127));
-            addObject(new Cannon(), x, y);
-            this.maxCannons--;
+	    if(Math.abs(r.nextInt()) % 2 == 0) {
+			addObject(new Cannon(), x, y);
+			this.maxCannons--;
+		} else {
+            		addObject(new Bomb(), x, y);
+			this.maxBombs--;
+		}
         }
     }
     
