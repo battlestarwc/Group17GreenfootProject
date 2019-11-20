@@ -31,6 +31,7 @@ public class Key extends Counter
         if(isTouching(Player.class)) {
             getWorld().removeObject(this);
             keyNumber++;
+	    getWorld().getObjects(Time.class).get(0).addTime();
         }
 
 

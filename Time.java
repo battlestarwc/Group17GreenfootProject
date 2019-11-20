@@ -31,6 +31,13 @@ public class Time extends Actor
         timer.scheduleAtFixedRate(tasknew, 1000, 1000);
     }
     
+	public void addTime() {
+		this.seconds += 10;
+		while(this.seconds >= 60) {
+			this.seconds -= 60;
+			this.minutes += 1;
+		}
+	}
     
     public void act() 
     {   
