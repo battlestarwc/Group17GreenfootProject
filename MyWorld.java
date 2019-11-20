@@ -14,9 +14,9 @@ public class MyWorld extends World
     private int screenSizeY = 600;
     private int playerTargetX = screenSizeX / 2;
     private int playerTargetY = screenSizeY / 2;
-    private int maxCannons = 25;
-    private int maxKeys = 10;
-
+    private int maxCannons = 40;
+    private int maxKeys =20;
+    private int maxBombs =35;
     private void scroll() {
         Actor player = null;
         for (Actor a : super.getObjects(Actor.class)) {
@@ -66,7 +66,7 @@ public class MyWorld extends World
     {    
         // Create a new world with 600x400 cells with a cell size of 1x1 pixels.
         super(600, 600, 1, false);
-        addObject(new Shade(),300,300);
+        //addObject(new Shade(),300,300);
         Maze a = new Maze(256);
         a.run();
         GreenfootImage background = getBackground();
@@ -79,7 +79,7 @@ public class MyWorld extends World
         //addObject(new Rock(),200,500);
         addObject(new ScoreBoard(200, 50), 0,0);
         addObject(new Time(), 0,0);
-        setPaintOrder(Time.class, ScoreBoard.class,Shade.class,Player.class, Key.class);
+        setPaintOrder(Time.class, ScoreBoard.class,Player.class, Key.class);
         Iterator mazeItr = a.getMaze().iterator();
         MazeGeneratorInterface inf = new MazeGeneratorInterface(this, mazeItr);
         Random r = new Random();
@@ -99,7 +99,7 @@ public class MyWorld extends World
             Cell c = arr.get(index);
             arr.remove(index);
             int x = (50*(c.getX()-127));
-            int y = (50*(c.getX()-127));
+            int y = (50*(c.getY()-127));
             addObject(new Key(), x, y);
             this.maxKeys--;
         }
@@ -108,9 +108,19 @@ public class MyWorld extends World
             Cell c = arr.get(index);
             arr.remove(index);
             int x = (50*(c.getX()-127));
-            int y = (50*(c.getX()-127));
+            int y = (50*(c.getY()-127));
             addObject(new Cannon(), x, y);
             this.maxCannons--;
+        }
+        while(this.maxBombs > 0 && arr.size() > 5 )
+        {
+            int index = Math.abs(r.nextInt() % arr.size());
+            Cell c = arr.get(index);
+            arr.remove(index);
+            int x = (50*(c.getX()-127));
+            int y = (50*(c.getY()-127));
+            addObject(new Bomb(),x,y);
+            this.maxBombs--;
         }
     }
     

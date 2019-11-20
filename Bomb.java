@@ -8,8 +8,16 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  */
 public class Bomb extends Actor
 {
-    
+    private GreenfootImage bomb; 
     public static final int damage = 3; 
+    /**
+     * 
+     */
+    public Bomb()
+    {
+        bomb = new GreenfootImage("images/Bomb.png");
+        setImage(bomb);
+    }
     /**
      * 
      * 
