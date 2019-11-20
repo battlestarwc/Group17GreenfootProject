@@ -33,7 +33,7 @@ public class Time extends Actor
     
 	public static void addTime() {
 		seconds += 10;
-		while(seconds >= 60) {
+		if(seconds >= 60) {
 			seconds -= 60;
 			minutes += 1;
 		}

@@ -11,7 +11,7 @@ public class Rock extends Actor
     private int life=15; 
     public static final int damage=3;
     private boolean targetSet = false;
-    private GreenfootImage rock = new GreenfootImage("Rock.png");
+    private GreenfootImage rock;
     private int speed=5; 
     /**
      * The rock will hurt the player if the player gets hit 
@@ -21,6 +21,8 @@ public class Rock extends Actor
 	public Rock() {
 	//Actor target = (Actor) (getWorld().getObjects(Player.class).get(0));
         //turnTowards(target.getX(), target.getY());	
+        rock =  new GreenfootImage("images/Rock.png");
+        setImage( rock);
 	}
     public void act() 
     {
@@ -54,7 +56,7 @@ public class Rock extends Actor
       {
 	if (isTouching(Wall.class))
         {
-            this.getWorld.removeObject(this);
+            this.getWorld().removeObject(this);
         }
         
 

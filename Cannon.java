@@ -14,7 +14,7 @@ public class Cannon extends Actor
     private int  speed;
     private int reloadDelayCount;
     
-    private GreenfootImage cannon = new GreenfootImage("Cannon.png");
+    private GreenfootImage cannon;
     /**
      * An example of a method - replace this comment with your own
      *
@@ -26,7 +26,8 @@ public class Cannon extends Actor
         cannonReloadTime=1; 
         reloadDelayCount = 5; 
         r = new Random();
-        
+        cannon = new GreenfootImage("images/Cannon.png");
+        setImage(cannon);
     }
 
     /**

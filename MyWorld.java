@@ -67,7 +67,7 @@ public class MyWorld extends World
     {    
         // Create a new world with 600x400 cells with a cell size of 1x1 pixels.
         super(600, 600, 1, false);
-        //addObject(new Shade(),300,300);
+        addObject(new Shade(),300,300);
         Maze a = new Maze(256);
         a.run();
         GreenfootImage background = getBackground();
@@ -75,7 +75,7 @@ public class MyWorld extends World
         background.fill();
         //Test scrolling
         addObject(new Player(), 0,0);
-    //addObject(new Key(), 300, 300);  
+        //addObject(new Key(), 300, 300);  
         //addObject(new Cannon(),200,500);
         //addObject(new Rock(),200,500);
         addObject(new ScoreBoard(200, 50), 0,0);
@@ -85,7 +85,7 @@ public class MyWorld extends World
         MazeGeneratorInterface inf = new MazeGeneratorInterface(this, mazeItr);
         Random r = new Random();
         Iterator cannonItr = a.getMaze().iterator();
-	PriorityQueue<Cell> arr = new PriorityQueue<>(); 
+        PriorityQueue<Cell> arr = new PriorityQueue<>(); 
         while(cannonItr.hasNext()) {
             Cell c = (Cell) cannonItr.next();
             if(c.isWall() || ((c.getX() < 2 && c.getX() > -2)&&(c.getY() < 2 && c.getY() >-2))){
@@ -96,29 +96,30 @@ public class MyWorld extends World
         //Collections.shuffle(arr);
         while(this.maxKeys > 0 && arr.size() > 5) {
             Cell c = arr.poll();
-	    if(r.nextInt() % 100 > 100 * (arr.size() / Math.pow((this.maxKeys + this.maxCannons), 2))) {
-			continue;
-		} 
+            if(r.nextInt() % 100 > 100 * (arr.size() / Math.pow((this.maxKeys + this.maxCannons), 2))) {
+                continue;
+            } 
             int x = (50*(c.getX()-127));
             int y = (50*(c.getX()-127));
             addObject(new Key(), x, y);
             this.maxKeys--;
         }
         while(this.maxCannons + this.maxBombs > 0 && arr.size() > 5) {
-		Cell c = arr.poll();
+            Cell c = arr.poll();
             if(r.nextInt() % 100 > 100 * (arr.size() / Math.pow((this.maxKeys + this.maxCannons), 2))) {
-                        continue;
-                }
+                continue;
+            }
             int x = (50*(c.getX()-127));
             int y = (50*(c.getX()-127));
-	    if(Math.abs(r.nextInt()) % 2 == 0) {
-			addObject(new Cannon(), x, y);
-			this.maxCannons--;
-		} else {
-            		addObject(new Bomb(), x, y);
-			this.maxBombs--;
-		}
+            if(Math.abs(r.nextInt()) % 2 == 0) {
+                addObject(new Cannon(), x, y);
+                this.maxCannons--;
+            } else {
+                addObject(new Bomb(), x, y);
+                this.maxBombs--;
+            }
         }
+        prepare();
     }
     
     /**
