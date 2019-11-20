@@ -14,9 +14,9 @@ public class MyWorld extends World
     private int screenSizeY = 600;
     private int playerTargetX = screenSizeX / 2;
     private int playerTargetY = screenSizeY / 2;
-    private int maxCannons = 32;
-    private int maxKeys = 64;
-    private int maxBombs = 10;
+    private int maxCannons = 50;
+    private int maxKeys = 100;
+    private int maxBombs = 25;
 
     private void scroll() {
         Actor player = null;
