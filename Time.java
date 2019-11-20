@@ -94,6 +94,7 @@ public class Time extends Actor
                         drawString(Integer.toString(seconds), getImage().getWidth()/2, 5, MAIN_COLOR, 50);
                     }
                         seconds --;
+			drawString("Find Keys and avoid death by projectile impact and explosion", getImage().getWidth()/3 + 7, 4, MAIN_COLOR, 75);
                 }
             }
         }
