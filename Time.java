@@ -16,8 +16,8 @@ public class Time extends Actor
      */
     private static final Color MAIN_COLOR = new Color(255,0,0);
     private static final Color BACKGROUND_COLOR = new Color(0, 0, 0);
-    public int minutes;
-    public int seconds;
+    public static int minutes;
+    public static int seconds;
     public Time() {
         minutes = 2;
         seconds = 0;
@@ -31,11 +31,11 @@ public class Time extends Actor
         timer.scheduleAtFixedRate(tasknew, 1000, 1000);
     }
     
-	public void addTime() {
-		this.seconds += 10;
-		while(this.seconds >= 60) {
-			this.seconds -= 60;
-			this.minutes += 1;
+	public static void addTime() {
+		seconds += 10;
+		while(seconds >= 60) {
+			seconds -= 60;
+			minutes += 1;
 		}
 	}
     
