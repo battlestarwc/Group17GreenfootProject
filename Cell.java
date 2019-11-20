@@ -1,4 +1,8 @@
-public class Cell implments Comparable<Cell>  {
+
+
+import java.util.*;
+
+public class Cell implements Comparable<Cell>  {
 
     private final int X; //The x cord in the grid
     private final int Y; //The y cord in the grid
@@ -30,7 +34,7 @@ public class Cell implments Comparable<Cell>  {
         return this.wall;
     }
 
-	private double path(x,y) {
+	private double path(int x, int y) {
 		return Math.abs(Math.sqrt(Math.pow(x-127,2) + Math.pow(y-127,2)));
 	}
 
@@ -46,6 +50,7 @@ public class Cell implments Comparable<Cell>  {
 		} else {
 			return 1;
 		}
-	{
+	
 
+}
 }

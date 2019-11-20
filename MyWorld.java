@@ -95,7 +95,7 @@ public class MyWorld extends World
         //Collections.shuffle(arr);
         while(this.maxKeys > 0 && arr.size() > 5) {
             Cell c = arr.poll();
-	    if(r.nextInt() % 100 > 100 * (arr.size() / Math.pow((this.maxKeys + this.maxCannons), 2)) {
+	    if(r.nextInt() % 100 > 100 * (arr.size() / Math.pow((this.maxKeys + this.maxCannons), 2))) {
 			continue;
 		} 
             int x = (50*(c.getX()-127));
@@ -105,7 +105,7 @@ public class MyWorld extends World
         }
         while(this.maxCannons > 0 && arr.size() > 5) {
 		Cell c = arr.poll();
-            if(r.nextInt() % 100 > 100 * (arr.size() / Math.pow((this.maxKeys + this.maxCannons), 2)) {
+            if(r.nextInt() % 100 > 100 * (arr.size() / Math.pow((this.maxKeys + this.maxCannons), 2))) {
                         continue;
                 }
             int x = (50*(c.getX()-127));

@@ -19,7 +19,7 @@ public class Player extends Actor
     
     public Player() {
 
-        speed = 5;
+        speed = 15;
         this.health = 30;
         GreenfootImage playerBeautifulFace = new GreenfootImage("images/playerPic1.png");
         playerBeautifulFace.scale(40,50); //squash
