@@ -93,7 +93,7 @@ public class Time extends Actor
                     else {
                         drawString(Integer.toString(seconds), getImage().getWidth()/2, 5, MAIN_COLOR, 50);
                     }
-                        seconds --;
+                        seconds--;
 			drawString("Find Keys and avoid", getImage().getWidth()/6 - 5, 50, MAIN_COLOR, 15);
                 }
             }
