@@ -54,7 +54,7 @@ public class Rock extends Actor
       {
 	if (isTouching(Wall.class))
         {
-            removeTouching(Rock.class);
+            this.getWorld.removeObject(this);
         }
         
 
