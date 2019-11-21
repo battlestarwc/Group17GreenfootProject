@@ -55,7 +55,9 @@ public class Maze implements Runnable {
          */
     }
 
-    //attempt the algorithm on the wikipedia page
+    	//Note: the use of the queue structure is to permit polling() rather than an array list getting and resizing
+	//Also note: while fairly inefficient, this does permit threading later if time permits
+	//attempt the algorithm on the wikipedia page
     private void randomizedPrimsAlgorithm() {
         Random r = new Random();
         //wall queue

@@ -3,8 +3,9 @@ import java.util.*;
 /**
  * Write a description of class MyWorld here.
  * 
- * @author (your name) 
- * @version (a version number or a date)
+ * @author Group 17 Greenfoot project 
+ * @version a0e2d7e61ef98ffbd7ffa6ca67183ed4f2814ddc
+ * Please keep the git commit version updated to the latest version of master.
  */
 public class MyWorld extends World
 {
@@ -14,7 +15,7 @@ public class MyWorld extends World
     private int screenSizeY = 600;
     private int playerTargetX = screenSizeX / 2;
     private int playerTargetY = screenSizeY / 2;
-    private int maxCannons = 50;
+    private int maxCannons = 75;
     private int maxKeys = 100;
     private int maxBombs = 25;
 
