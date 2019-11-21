@@ -14,13 +14,13 @@ public class Time extends Actor
      * Act - do whatever the Timer wants to do. This method is called whenever
      * the 'Act' or 'Run' button gets pressed in the environment.
      */
-    private static final Color MAIN_COLOR = new Color(255,0,0);
+    private static final Color MAIN_COLOR = new Color(255,10,10);
     private static final Color BACKGROUND_COLOR = new Color(0, 0, 0);
     public static int minutes;
     public static int seconds;
     public Time() {
         minutes = 2;
-        seconds = 0;
+        seconds = 30;
         setImage(new GreenfootImage(200, 75)); 
         getImage().setColor(BACKGROUND_COLOR);
         getImage().fill();
@@ -71,7 +71,8 @@ public class Time extends Actor
         
         screen.drawString("Health: 0", screen.getImage().getWidth() /4 , 275, MAIN_COLOR, 50);
         screen.drawString("Keys: ", screen.getImage().getWidth() / 4, 325, MAIN_COLOR, 50);
-        
+        Time.minutes = 0;
+	Time.seconds = 0;
     }
     
      public void drawString(String text, int x, int y, Color color, int height)
