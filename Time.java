@@ -54,8 +54,9 @@ public class Time extends Actor
     
     public void endTime() {
         
-        this.timer.cancel();
+        //this.timer.cancel();
         this.timer.purge();
+	this.timer.cancel();
         List<ScoreBoard> scoreboard = getWorld().getObjects(ScoreBoard.class);
         getWorld().removeObject(scoreboard.get(0));
         //List<Time> timeboard = getWorld().getObjects(Time.class);
