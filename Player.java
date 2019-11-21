@@ -69,6 +69,12 @@ public class Player extends Actor
     } 
     
    public void endScreen() {
+	try {
+		this.getWorld().getObjects(Time.class).get(0).killTimer();
+	}	
+	catch (Exception e) {
+		System.out.println(e);
+	}	
         List<ScoreBoard> test = getWorld().getObjects(ScoreBoard.class);
         getWorld().removeObject(test.get(0));
         ScoreBoard screen = new ScoreBoard(400, 400);

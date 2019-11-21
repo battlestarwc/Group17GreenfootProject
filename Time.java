@@ -53,10 +53,10 @@ public class Time extends Actor
     }    
     
     public void endTime() {
-        
+        this.killTimer();
         //this.timer.cancel();
-        this.timer.purge();
-	this.timer.cancel();
+        //this.timer.purge();
+	//this.timer.cancel();
         List<ScoreBoard> scoreboard = getWorld().getObjects(ScoreBoard.class);
         getWorld().removeObject(scoreboard.get(0));
         //List<Time> timeboard = getWorld().getObjects(Time.class);
@@ -79,6 +79,11 @@ public class Time extends Actor
 	Time.seconds = 0;
     }
     
+	public void killTimer() {
+		this.timer.purge();
+		this.timer.cancel();
+	}
+
      public void drawString(String text, int x, int y, Color color, int height)
     {
         getImage().drawImage(new GreenfootImage(text, height, color, new Color (0,0,0,0)), x, y);
