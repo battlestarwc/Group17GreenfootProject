@@ -14,7 +14,7 @@ public class Time extends Actor
      * Act - do whatever the Timer wants to do. This method is called whenever
      * the 'Act' or 'Run' button gets pressed in the environment.
      */
-    private static final Color MAIN_COLOR = new Color(255,10,10);
+    private static final Color MAIN_COLOR = new Color(255,0,0);
     private static final Color BACKGROUND_COLOR = new Color(0, 0, 0);
     public static int minutes;
     public static int seconds;
@@ -44,6 +44,7 @@ public class Time extends Actor
     {   
         setLocation(300, 50);
         if (minutes <= 0 && seconds <= -1) {
+            getImage().clear();
             endTime();
 		MyWorld.started = false;
             Greenfoot.stop();
@@ -75,6 +76,8 @@ public class Time extends Actor
         
         screen.drawString("Health: 0", screen.getImage().getWidth() /4 , 275, MAIN_COLOR, 50);
         screen.drawString("Keys: ", screen.getImage().getWidth() / 4, 325, MAIN_COLOR, 50);
+                screen.drawString(Integer.toString(getPlayerPosition.get(0).getKeys()), screen.getImage().getWidth() / 2 + 20, 325, MAIN_COLOR, 50);
+
         Time.minutes = 0;
 	Time.seconds = 0;
     }
@@ -113,7 +116,7 @@ public class Time extends Actor
                         drawString(Integer.toString(seconds), getImage().getWidth()/2, 5, MAIN_COLOR, 50);
                     }
                         //seconds--;
-			drawString("Find Keys and avoid death", getImage().getWidth()/6 , 50, MAIN_COLOR, 15);
+			drawString("Find Keys and avoid death", getImage().getWidth()/6 -5, 50, MAIN_COLOR, 15);
                 }
             }
         }

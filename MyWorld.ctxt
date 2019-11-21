@@ -1,6 +1,6 @@
 #BlueJ class context
 comment0.target=MyWorld
-comment0.text=\r\n\ Write\ a\ description\ of\ class\ MyWorld\ here.\r\n\ \r\n\ @author\ (your\ name)\ \r\n\ @version\ (a\ version\ number\ or\ a\ date)\r\n
+comment0.text=\r\n\ Write\ a\ description\ of\ class\ MyWorld\ here.\r\n\ \r\n\ @author\ Group\ 17\ Greenfoot\ project\ \r\n\ @version\ a0e2d7e61ef98ffbd7ffa6ca67183ed4f2814ddc\r\n\ Please\ keep\ the\ git\ commit\ version\ updated\ to\ the\ latest\ version\ of\ master.\r\n
 comment1.params=
 comment1.target=void\ scroll()
 comment2.params=

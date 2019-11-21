@@ -43,7 +43,7 @@ public class Cannon extends Actor
         turnTowards(player.getX(),player.getY());
 	if ( Math.sqrt( Math.pow(this.getX() - player.getX(), 2) + Math.pow(this.getY() - player.getY(), 2) ) < 500) { 
 		turnTowards(player.getX(),player.getY());
-		if (r.nextInt() % 50 == 42) {
+		if (r.nextInt() % 35 == 12) {
 			this.fire();
 		}
 		} } catch	 (Exception e) {

@@ -94,7 +94,8 @@ public class MyWorld extends World
         //addObject(new Rock(),200,500);
         addObject(new ScoreBoard(200, 50), 0,0);
         addObject(new Time(), 0,0);
-        setPaintOrder(Time.class, ScoreBoard.class,Shade.class,Player.class, Key.class);
+        Key.keyNumber = 0;
+        setPaintOrder(HealthBar.class,Time.class, ScoreBoard.class,Shade.class,Player.class, Key.class);
         Iterator mazeItr = a.getMaze().iterator();
         MazeGeneratorInterface inf = new MazeGeneratorInterface(this, mazeItr);
         Random r = new Random();
