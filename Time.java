@@ -45,6 +45,7 @@ public class Time extends Actor
         setLocation(300, 50);
         if (minutes <= 0 && seconds <= -1) {
             endTime();
+		MyWorld.started = false;
             Greenfoot.stop();
         }
         

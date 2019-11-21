@@ -18,6 +18,7 @@ public class MyWorld extends World
     private int maxCannons = 75;
     private int maxKeys = 100;
     private int maxBombs = 25;
+	public static boolean started;
 
     private void scroll() {
         Actor player = null;
@@ -57,7 +58,11 @@ public class MyWorld extends World
 
     public void act() {
         scroll();
-        
+        if(started == false) {
+		Time.minutes = 2;
+		Time.seconds = 30;
+		started = true;
+	}
     }
 
     /*
@@ -68,6 +73,7 @@ public class MyWorld extends World
     {    
         // Create a new world with 600x400 cells with a cell size of 1x1 pixels.
         super(600, 600, 1, false);
+	started = false;
         addObject(new Shade(),300,300);
         Maze a = new Maze(256);
         a.run();
