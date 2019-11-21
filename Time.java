@@ -19,8 +19,8 @@ public class Time extends Actor
     public static int minutes;
     public static int seconds;
     public Time() {
-        minutes = 2;
-        seconds = 30;
+        Time.minutes = 2;
+        Time.seconds = 30;
         setImage(new GreenfootImage(200, 75)); 
         getImage().setColor(BACKGROUND_COLOR);
         getImage().fill();
@@ -93,7 +93,9 @@ public class Time extends Actor
                        seconds = 59;
                        minutes --;
                        
-                    } 
+                    } else {
+				seconds--;
+			}
                     drawString(Integer.toString(minutes),getImage().getWidth()/5, 5, MAIN_COLOR, 50);
                     if (seconds < 10) {
                         drawString("0" + Integer.toString(seconds), getImage().getWidth()/2, 5, MAIN_COLOR, 50);
@@ -101,7 +103,7 @@ public class Time extends Actor
                     else {
                         drawString(Integer.toString(seconds), getImage().getWidth()/2, 5, MAIN_COLOR, 50);
                     }
-                        seconds--;
+                        //seconds--;
 			drawString("Find Keys and avoid death", getImage().getWidth()/6 , 50, MAIN_COLOR, 15);
                 }
             }
