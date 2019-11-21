@@ -18,6 +18,7 @@ public class Time extends Actor
     private static final Color BACKGROUND_COLOR = new Color(0, 0, 0);
     public static int minutes;
     public static int seconds;
+	private Timer timer;
     public Time() {
         Time.minutes = 2;
         Time.seconds = 30;
@@ -27,7 +28,7 @@ public class Time extends Actor
         setLocation(550,550);
         drawString(":",getImage().getWidth()/3 + 7, 4, MAIN_COLOR, 50);
         TimerTask tasknew = new testTask();
-        Timer timer = new Timer();
+        this.timer = new Timer();
         timer.scheduleAtFixedRate(tasknew, 1000, 1000);
     }
     
@@ -52,7 +53,8 @@ public class Time extends Actor
     
     public void endTime() {
         
-        
+        this.timer.cancel();
+        this.timer.purge();
         List<ScoreBoard> scoreboard = getWorld().getObjects(ScoreBoard.class);
         getWorld().removeObject(scoreboard.get(0));
         //List<Time> timeboard = getWorld().getObjects(Time.class);
