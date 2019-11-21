@@ -18,7 +18,7 @@ public class MyWorld extends World
     private int maxCannons = 75;
     private int maxKeys = 100;
     private int maxBombs = 25;
-	public static boolean started;
+    public static boolean started;
 
     private void scroll() {
         Actor player = null;
@@ -59,10 +59,10 @@ public class MyWorld extends World
     public void act() {
         scroll();
         if(started == false) {
-		Time.minutes = 2;
-		Time.seconds = 30;
-		started = true;
-	}
+        Time.minutes = 2;
+        Time.seconds = 30;
+        started = true;
+    }
     }
 
     /*
@@ -73,14 +73,14 @@ public class MyWorld extends World
     {    
         // Create a new world with 600x400 cells with a cell size of 1x1 pixels.
         super(600, 600, 1, false);
-	try {
-		for (Time t : this.getObjects(Time.class)) {
-			t.killTimer();
-		}
-	} catch (Exception ignore) {
+    try {
+        for (Time t : this.getObjects(Time.class)) {
+            t.killTimer();
+        }
+    } catch (Exception ignore) {
 
-	}
-	started = false;
+    }
+    started = false;
         addObject(new Shade(),300,300);
         Maze a = new Maze(256);
         a.run();
@@ -95,7 +95,10 @@ public class MyWorld extends World
         addObject(new ScoreBoard(200, 50), 0,0);
         addObject(new Time(), 0,0);
         Key.keyNumber = 0;
-        setPaintOrder(HealthBar.class,Time.class, ScoreBoard.class,Shade.class,Player.class, Key.class);
+        addObject(new HealthBar(), 0, 0);
+        addObject(new keyPic(),0,0);
+        addObject(new healthpic(),0,0);
+        setPaintOrder(healthpic.class,keyPic.class,HealthBar.class,Time.class, ScoreBoard.class,Shade.class,Player.class, Key.class);
         Iterator mazeItr = a.getMaze().iterator();
         MazeGeneratorInterface inf = new MazeGeneratorInterface(this, mazeItr);
         Random r = new Random();

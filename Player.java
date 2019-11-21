@@ -54,7 +54,7 @@ public class Player extends Actor
         
     if(isTouching(Rock.class)) {
         this.health -= Rock.damage;
-        Actor rock = getOneIntersectingObject(Rock.class);
+       Actor rock = getOneIntersectingObject(Rock.class);
         getWorld().removeObject(rock);
     }       
 
@@ -78,8 +78,8 @@ public class Player extends Actor
         List<ScoreBoard> test = getWorld().getObjects(ScoreBoard.class);
         getWorld().removeObject(test.get(0));
         ScoreBoard screen = new ScoreBoard(400, 400);
-        Color BACKGROUND_COLOR = new Color(0xB0, 0x40, 0x40);
-        Color MAIN_COLOR = new Color(0x60, 0x60, 0x60);
+        Color BACKGROUND_COLOR = new Color(255, 0, 0);
+        Color MAIN_COLOR = new Color(0, 0, 0);
         screen.getImage().setColor(BACKGROUND_COLOR);
         screen.getImage().fillRect(0,0,400,400);
         screen.drawString("YOU", screen.getImage().getWidth()/2 - 70, 100, MAIN_COLOR, 80);
@@ -89,8 +89,17 @@ public class Player extends Actor
         screen.drawString("Health: 0", screen.getImage().getWidth() /4 , 275, MAIN_COLOR, 50);
         screen.drawString("Keys: ", screen.getImage().getWidth() / 4, 325, MAIN_COLOR, 50);
         screen.drawString(Integer.toString(getKeys()), screen.getImage().getWidth() / 2 + 20, 325, MAIN_COLOR,50);
-        
-        
+        List<HealthBar> hb = getWorld().getObjects(HealthBar.class);
+        getWorld().removeObject(hb.get(0));
+        List<healthpic> hp = getWorld().getObjects(healthpic.class);
+                getWorld().removeObject(hp.get(0));
+
+        List<keyPic> kp = getWorld().getObjects(keyPic.class);
+                getWorld().removeObject(kp.get(0));
+
+
+
+             
     }
     public int wallCollision() {
         //returns 1 if no wall is in front of the player, -1 if there is
@@ -143,25 +152,6 @@ public class Player extends Actor
     
     
     
-    public int offsetX(int direction) {
-        if (getRotation() == 0) {
-            return speed + getImage().getWidth()/2;
-        }
-        if (getRotation() == 180) {
-            return -speed - getImage().getWidth()/2;
-        }
-        return 0;
-    }
-    
-    public int offsetY(int direction) {
-        if (getRotation() == 90) {
-            return speed + getImage().getHeight()/2;
-        }
-        if (getRotation() == 270) {
-            return -speed - getImage().getHeight()/2;
-        }
-        return 0;
-    }
     
     
 

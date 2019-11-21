@@ -21,7 +21,7 @@ private int index = 140;
                }
     public void act() 
     {
-        setLocation(500,500);
+        setLocation(510,545);
         updateBar();
     }    
     
@@ -31,7 +31,7 @@ private int index = 140;
 
         
         if (test.get(0).getHealth() != tempHealth) {
-            getImage().fillRect(index, 0, 50, 90); 
+            getImage().fillRect(index, 22, 50, 30); 
             index -= 11;
             tempHealth = test.get(0).getHealth();
         }

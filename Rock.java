@@ -40,14 +40,14 @@ public class Rock extends Actor
 	if(targetSet == true) {
 		move(5);
 	}
-         Player player = (Player) getOneIntersectingObject(Player.class);
-     if(player != null){
+       //  Player player = (Player) getOneIntersectingObject(Player.class);
+    // if(player != null){
          
          //this is causing greenfoot to stop whenever the rock hits the player when 
          //player is standing still or moving up and down, dont know how to fix
        //  Greenfoot.stop();
-         lookForWall();
-    } 
+     //    lookForWall();
+   // } 
     }
     /**
      * 
