@@ -51,7 +51,7 @@ public class Player extends Actor
                     keysPressed();
             }
         
-        
+try {        
     if(isTouching(Rock.class)) {
         this.health -= Rock.damage;
        Actor rock = getOneIntersectingObject(Rock.class);
@@ -65,7 +65,9 @@ public class Player extends Actor
         getWorld().removeObject(bomb);
 	Greenfoot.playSound("Explosion.wav");
     }
-        
+} catch (Exception ignore) {
+
+}   
      
     } 
     
