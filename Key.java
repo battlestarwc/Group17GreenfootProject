@@ -17,6 +17,7 @@ public class Key extends Counter
     public Key() {
 		GreenfootImage k = new GreenfootImage("Key.png");
 		this.setImage(k);
+		
 	}
 
     public void act() 
@@ -30,6 +31,7 @@ public class Key extends Counter
     public void getKey() {
         if(isTouching(Player.class)) {
             getWorld().removeObject(this);
+            Greenfoot.playSound("getkey.wav");
             keyNumber++;
 	    Time.addTime();
         }

@@ -8,11 +8,7 @@ import java.util.*;
  */
 public class Cannon extends Actor
 {
-    private Random r;
-    private int cannonReloadTime; 
-    private int shotsFired; 
-    private int  speed;
-    private int reloadDelayCount;
+    private Random r;  
     
     private GreenfootImage cannon;
     /**
@@ -23,8 +19,8 @@ public class Cannon extends Actor
      */
     public Cannon ()
     {
-        cannonReloadTime=1; 
-        reloadDelayCount = 5; 
+        
+        
         r = new Random();
         cannon = new GreenfootImage("images/Cannon.png");
         setImage(cannon);

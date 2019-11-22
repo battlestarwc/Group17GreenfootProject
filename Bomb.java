@@ -14,6 +14,7 @@ public class Bomb extends Actor
     {
         bomb = new GreenfootImage("images/Bomb.png");
         setImage(bomb);
+        
     }
     /**
      * 
@@ -26,10 +27,12 @@ public class Bomb extends Actor
     
  if (getOneIntersectingObject(Player.class)!=null)
          {
-             getWorld().removeObject(this);       
-         }}
-         
-        
+            Greenfoot.playSound("Explosion.wav");
+             getWorld().removeObject(this);   
+             
+         }
+       
         
 
+}
 }
