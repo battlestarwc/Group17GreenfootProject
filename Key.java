@@ -34,6 +34,9 @@ public class Key extends Counter
             Greenfoot.playSound("getkey.wav");
             keyNumber++;
 	    Time.addTime();
+		if(keyNumber > 0 && keyNumber % 25 == 0) {
+			Greenfoot.playSound("win.wav");
+		}
         }
 
 

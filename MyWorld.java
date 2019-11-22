@@ -63,9 +63,9 @@ public class MyWorld extends World
         Time.seconds = 30;
         started = true;
     }
-	if(Key.keyNumber % 25 == 0 && Key.keyNumber > 0) {
-		Greenfoot.playSound("win.wav");
-	}
+//	if(Key.keyNumber % 25 == 0 && Key.keyNumber > 0) {
+//		Greenfoot.playSound("win.wav");
+//	}
     }
 
     /*
