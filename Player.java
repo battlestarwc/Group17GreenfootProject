@@ -77,7 +77,8 @@ try {
 	}	
 	catch (Exception e) {
 		System.out.println(e);
-	}	
+	}
+	Lose.GameOver();	
         List<ScoreBoard> test = getWorld().getObjects(ScoreBoard.class);
         getWorld().removeObject(test.get(0));
         ScoreBoard screen = new ScoreBoard(400, 400);

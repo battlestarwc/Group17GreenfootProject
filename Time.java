@@ -57,7 +57,7 @@ public class Time extends Actor
         this.killTimer();
         //this.timer.cancel();
         //this.timer.purge();
-    
+	Lose.GameOver();    
         List<ScoreBoard> scoreboard = getWorld().getObjects(ScoreBoard.class);
         getWorld().removeObject(scoreboard.get(0));
         //List<Time> timeboard = getWorld().getObjects(Time.class);
