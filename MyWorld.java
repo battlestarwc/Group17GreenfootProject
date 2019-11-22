@@ -64,7 +64,7 @@ public class MyWorld extends World
         started = true;
     }
 	if(Key.keyNumber % 25 == 0 && Key.keyNumber > 0) {
-		Greenfoot.playSound("sounds/Explosion.wav");
+		Greenfoot.playSound("win.wav");
 	}
     }
 

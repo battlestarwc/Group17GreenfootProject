@@ -63,6 +63,7 @@ public class Player extends Actor
         this.health -= Bomb.damage;
         Actor bomb = getOneIntersectingObject(Bomb.class); 
         getWorld().removeObject(bomb);
+	Greenfoot.playSound("Explosion.wav");
     }
         
      
