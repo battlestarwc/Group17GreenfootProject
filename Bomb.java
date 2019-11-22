@@ -25,7 +25,7 @@ public class Bomb extends Actor
 
                 
     
- if (getOneIntersectingObject(Player.class)!=null)
+ if (isTouching(Player.class))
          {
             Greenfoot.playSound("Explosion.wav");
              getWorld().removeObject(this);   
